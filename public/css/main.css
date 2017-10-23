@@ -27,3 +27,24 @@
 .cls-mt-30 {
 	margin-top: 30px;
 }
+.cls-date-pick {
+	padding-right: 21px;
+}
+.cls-alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.cls-select-fa {
+    padding: 4px;
+    width: 172px;
+}
+.custom-alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.img-w-h {
+    width: 210px !important;
+    height: 210px !important;
+}
