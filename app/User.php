@@ -12,12 +12,14 @@ class User extends Authenticatable
     CONST NOT_ADMIN = 'false';
     CONST IS_ADMIN = 'true';
     CONST ROLE_ADMIN = '1';
+    CONST ROLE_USER = '0';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
+        'id',
         'full_name',
         'username',
         'email',
@@ -30,6 +32,7 @@ class User extends Authenticatable
         'place_of_birth',
         'birthday',
         'company',
+        'path',
         'position',
     ];
 

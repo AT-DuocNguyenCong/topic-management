@@ -23,6 +23,7 @@ class CreateTopicsTable extends Migration
             $table->string('urgency');
             $table->text('goal');
             $table->integer('own_user_id')->unsigned();
+            $table->integer('max_member')->unsigned()->nullable();
             $table->text('method');
             $table->string('document_path')->nullable();
             $table->tinyInteger('status');

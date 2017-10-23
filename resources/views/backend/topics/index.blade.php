@@ -1,6 +1,6 @@
 @extends('backend.layouts.main')
 
-@section('title', __('Users | List users'))
+@section('title', __('Topics | List Topics'))
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -8,11 +8,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        {{ __('Users Management') }}
+        {{ __('Topics Management') }}
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> {{ __('Home Page') }}</a></li>
-        <li class="active">{{ __('Users') }}</li>
+        <li class="active">{{ __('Topics') }}</li>
       </ol>
     </section>
 
@@ -23,15 +23,9 @@
           <div class="box">
             <div class="box-header">
               <div class="title-user mb-10">
-                <h3 class="box-title title-header">{{ __('List Users') }}</h3>
+                <h3 class="box-title title-header">{{ __('List Topics') }}</h3>
               </div>  
               <div class="row">
-                <div class="contain-btn">
-                  <a class="btn btn-primary  pull-right clr-mr-13" href="{{ route('user.create')}}" id="btn-add-user">
-                  <span class="fa fa-plus-circle"></span>
-                  {{ __('Add user') }}
-                  </a>
-                </div>
               </div>
             </div>
              <!-- /.box-header -->
@@ -42,43 +36,50 @@
                 <thead>
                   <tr align="center">
                     <th>{{ __('ID') }}</th>
-                    <th>{{ __('Username') }}</th>
-                    <th>{{ __('Full Name') }}</th>
-                    <th>{{ __('Email')}}</th>
-                    <th>{{ __('Phone') }}</th>
-                    <th class="">{{ __('Role') }}</th>
-                    <th class="text-center">{{ __('Option') }}</th>
+                    <th>{{ __('Name') }}</th>
+                    <th>{{ __('Own User') }}</th>
+                    <th>{{ __('Max member')}}</th>
+                    <th>{{ __('Member')}}</th>
+                    <th>{{ __('Status') }}</th>
+                    <th class="">{{ __('Begin') }}</th>
+                    <th class="">{{ __('End') }}</th>
+                    <th class="">{{ __('Options') }}</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($users as $user)
+                  @foreach ($topics as $topic)
                     <tr>
-                      <td>{{ $user->id }}</td>
+                      <td>{{ $topic->id }}</td>
                       <td>
-                        <a href="{{ route('user.show', $user->id) }}">
-                          {{ $user->username }}
+                        <a href="{{ route('topics.show', $topic->id) }}">
+                          {{ $topic->name }}
                         </a>
                       </td>
-                      <td>{{ $user->full_name }}
-                      <td>{{ $user->email }}</td>
-                      <td>{{ $user->phone }}
-                      <td class="text-center">
-                        <form method="POST" action="
-                          {{ route('user.updateRole', $user->id) }}">
-                          {!! csrf_field() !!}
-                          {{ method_field('PUT') }}
-                          @if ($user->is_admin == App\User::ROLE_ADMIN)
-                            <button type="submit" class="btn btn-primary cls-buton">{{ __('Admin') }}</button>
-                          @else
-                            <button type="submit" class="btn btn-default cls-buton"> {{ __('User') }} </button>
-                          @endif
-                        </form>
-                      </td>
+                      <td>{{ $topic->own_user_id }}</td>
+                      <td>{{ $topic->max_member }}</td>
+                      <td>{{ $topic->join_member }}</td>
+                      @switch($topic->status)
+                      @case(App\Topic::STATUS_FINISH)
+                          @php($status = 'Finish')
+                          @break
+                      @case(App\Topic::STATUS_IN_PROGRESS)
+                          @php($status = 'In Progress')
+                          @break
+                      @case(App\Topic::STATUS_PENDING_USER)
+                          @php($status = 'Pending User')
+                          @break
+                      @default()
+                          @php($status = 'Pending Admin')
+                          @break
+                      @endswitch
+                      <td>{{ $status }}</td>
+                      <td>{{ $topic->date_begin }}</td>
+                      <td>{{ $topic->date_end }}</td>
                       <td align="center">
                         <div class="btn-option text-center">
-                          <a href="{{ route('user.edit', $user->id) }}"  class="btn btn-default fa fa-pencil-square-o pull-left" >
+                          <a href="{{ route('topics.edit', $topic->id) }}"  class="btn btn-default fa fa-pencil-square-o pull-left" >
                           </a>
-                          <form method="POST" action="{{ route('user.destroy', $user->id) }}" class="inline">
+                          <form method="POST" action="{{ route('topics.destroy', $topic->id) }}" class="inline">
                             {!! csrf_field() !!}
                             {{ method_field('DELETE') }}
                             <button type="submit" 
@@ -97,7 +98,7 @@
                 {{__('Data Not Found')}}
               </div>
               <div class="pull-right cls-mr-13">
-                {!! $users->render() !!}
+                {!! $topics->render() !!}
               </div>
             </div>
             <!-- /.box-body -->
