@@ -15,6 +15,9 @@ Route::get('/', 'HomeController@index')->name('home.index');
 Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin'], function() {
     Route::get('/', 'AdminController@index')->name('admin.index');
     Route::resource('/user', 'UserController');
+    Route::resource('/levels', 'LevelController');
+    Route::resource('/fields', 'FieldController');
+    Route::resource('/academicranks', 'AcademicRankController');
 });
 
 Auth::routes();

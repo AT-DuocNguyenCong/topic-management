@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Field extends Model
+class AcademicRank extends Model
 {
 	
 }
