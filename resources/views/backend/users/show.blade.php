@@ -15,13 +15,20 @@
                         <div class="box-header">
                             <h3 class="box-title">{{ __('User Information') }}</h3>
                             @if ($user->birthday == null | $user->hometown == null | $user->place_of_birth == null | $user->major == null | $user->position == null | $user->company == null)
-                            <p class="text-danger">{{ __('Alert: This account information is not complete, please update')}}</p>
+                            <div class="alert custom-alert-danger">
+                              <p>{{ __('Alert: This account information is not complete, please update')}}</p>
+                            </div>
+                            @else
+                              <div class="alert cls-alert-info">
+                              <p>{{ __('Alert: This account is full information')}}</p>
+                            </div>
                             @endif
                         </div>
                         <div class="box-body">
+                            @include('flash::message')
                             <div class="col-md-4 text-center">
-                                <img alt="" title="" class="avt-main img-thumbnail isTooltip"
-                                     src="{{ $user->path == null ? asset('img/default1.jpg') : $user->path }}"
+                                <img alt="" title="" class="avt-main img-thumbnail isTooltip img-w-h"
+                                     src="{{ $user->path == null ? asset('img/default1.jpg') : asset($user->path) }}"
                                      data-original-title="Usuario">
                             </div>
                             <div class="col-md-8">

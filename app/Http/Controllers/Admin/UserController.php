@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\CreateUserRequest;
+use App\Http\Requests\Backend\UpdateUserRequest;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -81,9 +82,50 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        // dd($user);
+
+        if ($request['password'] == null) {
+            unset($request['password']);
+            unset($request['password_confirmation']);
+        }
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = config('image.name_prefix') . "-" . $file->hashName();
+            $file->move(config('image.user.path_upload'), $fileName);
+            $request['path'] = 'images/user/'.$fileName;
+        }
+
+        if ($user->update($request->all())) {
+            flash(__('Update success'))->success();
+            return redirect()->route('user.show', $id);
+        } else {
+            flash(__('Update failure'))->error();
+            return redirect()->back()->withInput();
+        }
+
+    }
+
+    /**
+     * Update role of user.
+     *
+     * @param int $id id of user
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateRole($id)
+    {
+        $user = User::findOrFail($id);
+        if ($user->is_admin == User::ROLE_ADMIN) {
+            $user->update(['is_admin' => User::ROLE_USER]);
+        } else {
+            $user->update(['is_admin' => User::ROLE_ADMIN]);
+        }
+        flash(__('Change role successful for username: ' . $user->username))->success();
+        return redirect()->route('user.index');
     }
 
     /**
@@ -94,6 +136,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        if ($user->delete()) {
+            flash(__('Delete success!'))->success();
+            return redirect()->route('user.index');
+        } else {
+            flash(__('Delete failure'))->error();
+            return redirect()->route('user.index');
+        }
     }
 }
