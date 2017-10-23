@@ -61,9 +61,9 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="route{{'levels.index'}}"><i class="fa fa-circle-o"></i>{{'Level'}}</a></li>
-          <li><a href="route{{'academicranks.index'}}"><i class="fa fa-circle-o"></i>{{'Academic Rank'}}</a></li>
-          <li><a href="route{{'fields.index'}}"><i class="fa fa-circle-o"></i>{{'Field'}}</a></li>
+          <li><a href="{{ route('levels.index') }}"><i class="fa fa-circle-o"></i>{{'Level'}}</a></li>
+          <li><a href="{{ route('fields.index') }}"><i class="fa fa-circle-o"></i>{{'Field'}}</a></li>
+          <li><a href="{{ route('academicsrank.index') }}"><i class="fa fa-circle-o"></i>{{'Academic Rank'}}</a></li>
         </ul>
       </li>
       <li class="treeview">

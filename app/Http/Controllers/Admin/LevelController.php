@@ -72,10 +72,10 @@ class LevelController extends Controller
         $level = Level::findOrFail($id);
         $result = $level->update($request->all());
         if ($result) {
-            flash(__('Update Level Success!'));
+            flash(__('Update Level Success!'))->success();
             return redirect()->route('levels.index');
         } else {
-            flash(__('Update Level Fail!'));
+            flash(__('Update Level Fail!'))->fail();
             return redirect()->back();
         }
     }
@@ -90,9 +90,9 @@ class LevelController extends Controller
     {
         $level = Level::findOrFail($id)->delete();
         if ($level) {
-            flash(__('Delete Level Success!'));
+            flash(__('Delete Level Success!'))->success();
         } else {
-            flash(__('Delete Level Fail!'));
+            flash(__('Delete Level Fail!'))->fail();
         }
         return redirect()->route('levels.index');
     }
