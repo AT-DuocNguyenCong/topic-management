@@ -1,0 +1,29 @@
+.clr-mr-13 {
+	margin-right: 13px;
+}
+.clr-ml-15per {
+	margin-left: 15%;
+}
+.clr-width-70per {
+	max-width: 70%;
+}
+.cls-buton {
+	width: 80px;
+}
+.btn-custom-option {
+    font-size: 22px;
+}
+.btn-option:after {
+    content: "";
+    clear:both;
+}
+.btn-option{
+    width: 95px;
+    margin: 0 auto;
+}
+.cls-ml-46 {
+	margin-left: 46px;
+}
+.cls-mt-30 {
+	margin-top: 30px;
+}
