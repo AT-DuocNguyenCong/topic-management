@@ -4,7 +4,7 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="{{ Auth::user()->path == null ? asset('img/default1.jpg') : Auth::user()->path }}" class="img-circle" alt="User Image">
+        <img src="{{ Auth::user()->path == null ? asset('img/default1.jpg') : asset(Auth::user()->path) }}" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
         <p>{{ Auth::user()->full_name }}</p>
@@ -21,14 +21,14 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> {{ __('Update profile') }} </a></li>
-          <li><a href="index2.html"><i class="fa fa-circle-o"></i> {{ __('Show profile') }} </a></li>
+          <li class="active"><a href="{{ route('user.edit', Auth::user()->id ) }}"><i class="fa fa-circle-o"></i> {{ __('Update profile') }} </a></li>
+          <li><a href="{{ route('user.show', Auth::user()->id ) }}"><i class="fa fa-circle-o"></i> {{ __('Show profile') }} </a></li>
         </ul>
       </li>
       {{-- end my profile --}}
       {{-- user mn --}}
       <li>
-        <a href="pages/widgets.html">
+        <a href="{{ route('user.index') }}">
           <i class="fa fa-male"></i> <span>{{__('Users Management')}}</span>
           <span class="pull-right-container">
             <small class="label pull-right bg-green">new</small>
@@ -45,10 +45,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-          <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-          <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-          <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+          <li><a href="{{ route('topics.index') }}"><i class="fa fa-circle-o"></i>{{ __('List topics') }}</a></li>
+          <li><a href="{{ route('topics.pending') }}"><i class="fa fa-circle-o"></i>{{ __('Pending topics') }}</a></li>
         </ul>
       </li>
 
