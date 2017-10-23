@@ -17,6 +17,7 @@ class CreateUserAcademicRankTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('academic_rank_id');
+            $table->datetime('graduate');
             $table->timestamps();
         });
     }
