@@ -13,11 +13,12 @@
 Route::get('/', 'HomeController@index')->name('home.index');
 
 Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin'], function() {
-    Route::get('/', 'AdminController@index')->name('admin.index');
+    Route::get('/', 'HomeController@index')->name('admin.index');
     Route::resource('/user', 'UserController');
     Route::resource('/levels', 'LevelController');
     Route::resource('/fields', 'FieldController');
     Route::resource('/academicsrank', 'AcademicRankController');
+    //Route::resource('/topics', 'AcademicRankController');
 });
 
 Auth::routes();
