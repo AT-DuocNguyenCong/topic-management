@@ -18,18 +18,18 @@ Route::group(['as' => 'user.'], function() {
 });
 
 Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin'], function() {
-    Route::get('/', 'AdminController@index')->name('admin.index');
+    Route::get('/', 'HomeController@index')->name('admin.index');
     Route::resource('/user', 'UserController');
     Route::resource('/levels', 'LevelController');
     Route::resource('/fields', 'FieldController');
     Route::resource('/academicsrank', 'AcademicRankController');
-    Route::resource('/academicranks', 'AcademicRankController');
     Route::resource('/topics', 'TopicController');
     Route::put('/user/{id}/role', 'UserController@updateRole')->name('user.updateRole');
     Route::get('/pending/topics', 'TopicController@topicsPending')->name('topics.pending');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/profile', 'UserController');
+Route::resource('profile.academicsrank', 'AcademicRankController', ['only' => ['create', 'store']]);
 Route::resource('/usertopics', 'TopicController');
 
 Auth::routes();

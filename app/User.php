@@ -2,6 +2,9 @@
 
 namespace App;
 
+
+use App\AcademicRank;
+use App\UserAcademicsRank;
 use App\Topic;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -48,6 +51,41 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function academicsrank()
+    {
+        return $this->belongsToMany(AcademicRank::class);
+    }
+
+    /**
+     * Get academics  rank
+     *
+     * @return array
+     */
+    public function userAcademicsrank()
+    {
+        return $this->hasMany(UserAcademicsRank::class);
+    }
+
+     /**
+     * Get hotel service for service
+     *
+     * @return array
+     */
+    public function messageSend()
+    {
+        return $this->hasMany(Message::class, 'sender_id');
+    }
+
+     /**
+     * Get hotel service for service
+     *
+     * @return array
+     */
+    public function messageRecieve()
+    {
+        return $this->hasMany(Message::class, 'reciever_id');
+    }
 
   
     public function topics()

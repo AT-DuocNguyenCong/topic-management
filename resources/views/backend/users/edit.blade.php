@@ -76,7 +76,7 @@
                                             <td>
                                                 <strong>
                                                     <span class="glyphicon glyphicon-asterisk  text-primary"></span>
-                                                    {{ __('Password') }}
+                                                    {{ __('Confirm Password') }}
                                                 </strong>
                                             </td>
                                             <td class="">
@@ -244,7 +244,7 @@
                                             <td>
                                                 <strong>
                                                     <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                    created
+                                                    {{ __('Date Creation') }}
                                                 </strong>
                                             </td>
                                             <td class="text-primary">
@@ -255,7 +255,7 @@
                                             <td>
                                                 <strong>
                                                     <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                    {{ __('Updated At') }}
+                                                    {{ __('Last Change') }}
                                                 </strong>
                                             </td>
                                             <td class="text-primary">
@@ -264,13 +264,12 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <strong>
-                                                    <span class="text-primary"></span>
-                                                    {{ __('Action') }}
-                                                </strong>
+                                               <button type="reset" class="btn btn-warning btn-xs">
+                                                {{ __('Reset')}}    
+                                               </button>
                                             </td>
                                             <td>
-                                                <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+                                                <button type="submit" class="btn btn-primary pull-right btn-xs">{{ __('Submit') }}</button>
                                             </td>
                                         </tr>
                                         </tbody>

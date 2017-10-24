@@ -182,7 +182,7 @@
                                             <td>
                                                 <strong>
                                                     <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                                    created
+                                                    {{__('Date Creation')}}
                                                 </strong>
                                             </td>
                                             <td class="text-primary">
@@ -193,7 +193,7 @@
                                             <td>
                                                 <strong>
                                                     <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                                    {{ __('Updated At') }}
+                                                    {{ __('Last change') }}
                                                 </strong>
                                             </td>
                                             <td class="text-primary">

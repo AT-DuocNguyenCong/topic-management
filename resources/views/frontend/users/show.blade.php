@@ -235,6 +235,22 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <td>
+                                                <strong>
+                                                    <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                                    {{ __('Academics Rank') }}
+                                                </strong>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    @foreach($user->userAcademicsrank as $value)
+                                                        <li>{{$value->academicsrank->name}}</li>
+                                                    @endforeach
+                                                    <li><a href="{{ route('profile.academicsrank.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>   
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                           <td colspan="2">
                                             <div class="alert cls-alert-info">
                                               <strong>{{ __('Orther information') }}</strong>

@@ -17,4 +17,9 @@ $(document).ready(function(){
             $('#confirm').modal('hide');
         })
     });
+
+    $('#logout').on('click', function(e) {
+        e.preventDefault();
+        $('#logout-form').submit();
+    });
 });

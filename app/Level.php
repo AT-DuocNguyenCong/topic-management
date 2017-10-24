@@ -22,4 +22,9 @@ class Level extends Model
     ];
 
     const PER_PAGE = 10;
+
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
 }

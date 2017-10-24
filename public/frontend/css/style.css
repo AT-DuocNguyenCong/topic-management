@@ -862,6 +862,21 @@ input[type="text"] {
     width: 70%;
     margin-left: 17%;
 }
+.user-image {
+  width: 40px;
+}
+.user-dropdown {
+  margin-left: 3%;
+}
+ul li {
+  list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.cls-rank-style {
+  font-size: 14px;
+}
 .nopadding {
    padding: 0 !important;
 }
