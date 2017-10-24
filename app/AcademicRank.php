@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\User;
+use App\UserAcademicsRank;
 use Illuminate\Database\Eloquent\Model;
 
 class AcademicRank extends Model
@@ -24,5 +26,15 @@ class AcademicRank extends Model
     public function users()
     {
     	return $this->belongsToMany(User::class);
+    }
+
+     /**
+     * Get hotel service for service
+     *
+     * @return array
+     */
+    public function userAcademicsrank()
+    {
+        return $this->hasMany(UserAcademicsRank::class);
     }
 }

@@ -2,8 +2,10 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
+use App\AcademicRank;
+use App\UserAcademicsRank;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -13,6 +15,7 @@ class User extends Authenticatable
     CONST IS_ADMIN = 'true';
     CONST ROLE_ADMIN = '1';
     CONST ROLE_USER = '0';
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -44,4 +47,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function academicsrank()
+    {
+        return $this->belongsToMany(AcademicRank::class);
+    }
+
+    /**
+     * Get hotel service for service
+     *
+     * @return array
+     */
+    public function userAcademicsrank()
+    {
+        return $this->hasMany(UserAcademicsRank::class);
+    }
 }
