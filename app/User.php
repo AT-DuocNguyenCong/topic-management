@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
+use App\Topic;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -13,6 +14,8 @@ class User extends Authenticatable
     CONST IS_ADMIN = 'true';
     CONST ROLE_ADMIN = '1';
     CONST ROLE_USER = '0';
+
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -44,4 +47,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // /**
+    //  * Relationship belongsTo with place
+    //  *
+    //  * @return array
+    // */
+    // public function topics()
+    // {
+    //     return $this->hasMany(Topic::class);
+    // }
 }

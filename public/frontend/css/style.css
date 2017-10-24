@@ -862,3 +862,12 @@ input[type="text"] {
     width: 70%;
     margin-left: 17%;
 }
+.nopadding {
+   padding: 0 !important;
+}
+.nopadding-r {
+   padding-right: 0 !important;
+}
+.mt-20 {
+  margin-top: 20px;
+}

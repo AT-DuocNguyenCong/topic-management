@@ -55,7 +55,7 @@
                           {{ $topic->name }}
                         </a>
                       </td>
-                      <td>{{ $topic->own_user_id }}</td>
+                      <td>{{ $topic->user->username }}</td>
                       <td>{{ $topic->max_member }}</td>
                       <td>{{ $topic->join_member }}</td>
                       @switch($topic->status)
