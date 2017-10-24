@@ -54,12 +54,32 @@ class User extends Authenticatable
     }
 
     /**
-     * Get hotel service for service
+     * Get academics  rank
      *
      * @return array
      */
     public function userAcademicsrank()
     {
         return $this->hasMany(UserAcademicsRank::class);
+    }
+
+     /**
+     * Get hotel service for service
+     *
+     * @return array
+     */
+    public function messageSend()
+    {
+        return $this->hasMany(Message::class, 'sender_id');
+    }
+
+     /**
+     * Get hotel service for service
+     *
+     * @return array
+     */
+    public function messageRecieve()
+    {
+        return $this->hasMany(Message::class, 'reciever_id');
     }
 }
