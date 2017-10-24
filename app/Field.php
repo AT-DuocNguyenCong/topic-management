@@ -27,4 +27,8 @@ class Field extends Model
     {
         return $this->hasMany(Topic::class);
     }
+    public function topicLimit()
+    {
+        return $this->hasMany(Topic::class)->limit(3);
+    }
 }

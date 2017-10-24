@@ -22,7 +22,7 @@ class Topic extends Model
     protected $fillable = [
     	'id',
         'nam',
-        'fields_id',
+        'field_id',
         'level_id',
         'expense',
         'over_view',
@@ -45,8 +45,7 @@ class Topic extends Model
     */
     public function field()
     {
-        // return $this->belongsTo(Field::class, 'fields_id');
-        return $this->hasOne(Field::class, 'fields_id');
+        return $this->belongsTo(Field::class, 'field_id');
     }
 
 
@@ -67,6 +66,6 @@ class Topic extends Model
     */
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class, 'own_user_id');
     }
 }

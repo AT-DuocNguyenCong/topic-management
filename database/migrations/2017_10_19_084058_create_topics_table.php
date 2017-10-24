@@ -16,7 +16,7 @@ class CreateTopicsTable extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-            $table->integer('fields_id')->unsigned();
+            $table->integer('field_id')->unsigned();
             $table->integer('level_id')->unsigned();
             $table->double('expense');
             $table->text('over_view');
@@ -29,7 +29,8 @@ class CreateTopicsTable extends Migration
             $table->tinyInteger('status');
             $table->datetime('date_begin');
             $table->datetime('date_end');
-            $table->foreign('fields_id')->references('id')->on('fields');
+            $table->string('img')->nullable();
+            $table->foreign('field_id')->references('id')->on('fields');
             $table->foreign('own_user_id')->references('id')->on('users');
             $table->timestamps();
         });

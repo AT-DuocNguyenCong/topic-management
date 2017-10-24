@@ -11,6 +11,11 @@
 |
 */
 Route::get('/', 'HomeController@index')->name('home.index');
+Route::group(['as' => 'user.'], function() {
+
+   Route::resource('/fields', 'FieldController');
+   Route::resource('/topics', 'TopicController');
+});
 
 Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin'], function() {
     Route::get('/', 'AdminController@index')->name('admin.index');
@@ -25,6 +30,5 @@ Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin
 });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/profile', 'UserController');
-
 
 Auth::routes();
