@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Field;
+use App\Http\Requests\TopicCreateRequest;
+use App\Level;
 use App\Topic;
 use Illuminate\Http\Request;
 
@@ -24,7 +27,10 @@ class TopicController extends Controller
      */
     public function create()
     {
-        //
+    	$fields = Field::get();
+    	$levels = Level::get();
+      
+      return view('frontend.topics.create', compact(['fields', 'levels']));
     }
 
     /**
@@ -35,7 +41,32 @@ class TopicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    public function store(TopicCreateRequest $request)
+    {
+        // dd($request->all());
+        $topic = new Topic($request->all());
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName = config('image.name_prefix') . "-" . $file->hashName();
+            $file->move('files/', $fileName);
+            $topic['document_path'] = 'files/'.$fileName;
+        }
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = config('image.name_prefix') . "-" . $file->hashName();
+            $file->move(config('image.topic.path_upload'), $fileName);
+            $topic['img'] = 'images/topic/'.$fileName;
+        }
+
+        if ($topic->save()) {
+            flash(__('Your sicence topics created successful! Please waiting for ADMIN approve'))->success();
+            return redirect()->route('home.index');
+        } else {
+            flash(__('Creation failed!'))->error();
+            return redirect()->back()->withInput();
+        }
     }
 
     /**

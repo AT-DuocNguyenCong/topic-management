@@ -14,6 +14,8 @@ class User extends Authenticatable
     CONST IS_ADMIN = 'true';
     CONST ROLE_ADMIN = '1';
     CONST ROLE_USER = '0';
+
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -46,6 +48,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+  
     public function topics()
     {
         return $this->hasMany(Topic::class);

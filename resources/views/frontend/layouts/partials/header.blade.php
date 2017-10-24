@@ -23,6 +23,7 @@
                         </li>
                         @if(Auth::user()->is_admin == App\User::ROLE_ADMIN)
                           <li><a href="/admin">{{ __('Admin Management') }}</a></li>
+                        <li><a href="{{ route('usertopics.create') }}">{{ __('New a topic') }}</a></li>
                         <li><a href="{{ route('logout') }}">{{ __('Logout') }}</a></li>
                         @endif
                       </ul>

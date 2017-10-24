@@ -16,10 +16,7 @@ class TopicController extends Controller
      */
     public function index()
     {   
-        // \DB::enableQueryLog();
-        // $topics = Topic::with('level')->get();
-        $topics = Topic::orderby('id', 'DESC')->paginate(10);
-        // dd(\DB::getQueryLog());
+        $topics = Topic::with('user')->orderby('id', 'DESC')->paginate(10);
         return view('backend.topics.index', compact('topics'));
     }
 

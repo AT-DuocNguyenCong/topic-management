@@ -14,15 +14,16 @@ class Topic extends Model
     const STATUS_PENDING_ADMIN = 0;
     const STATUS_PENDING_USER = 1;
 
+    protected $table = 'topics';
 	/**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-    	'id',
-        'nam',
-        'field_id',
+    	  'id',
+        'name',
+        'fields_id',
         'level_id',
         'expense',
         'over_view',
@@ -30,9 +31,9 @@ class Topic extends Model
         'goal',
         'own_user_id',
         'max_member',
-        'jion_member',
         'method',
         'document_path',
+        'img',
         'status',
         'date_begin',
         'date_end',
