@@ -14,6 +14,7 @@ class Topic extends Model
     const STATUS_PENDING_ADMIN = 0;
     const STATUS_PENDING_USER = 1;
 
+    protected $table = 'topics';
 	/**
      * The attributes that are mass assignable.
      *
@@ -21,7 +22,7 @@ class Topic extends Model
      */
     protected $fillable = [
     	'id',
-        'nam',
+        'name',
         'fields_id',
         'level_id',
         'expense',
@@ -30,9 +31,9 @@ class Topic extends Model
         'goal',
         'own_user_id',
         'max_member',
-        'jion_member',
         'method',
         'document_path',
+        'img',
         'status',
         'date_begin',
         'date_end',
@@ -67,6 +68,6 @@ class Topic extends Model
     */
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class, 'own_user_id');
     }
 }

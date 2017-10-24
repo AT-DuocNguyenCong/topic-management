@@ -21,7 +21,7 @@ class CreateTopicsTable extends Migration
             $table->double('expense');
             $table->text('over_view');
             $table->string('urgency');
-            $table->text('goal');
+            $table->text('goal')->nullable();
             $table->integer('own_user_id')->unsigned();
             $table->integer('max_member')->unsigned()->nullable();
             $table->text('method');
@@ -29,6 +29,7 @@ class CreateTopicsTable extends Migration
             $table->tinyInteger('status');
             $table->datetime('date_begin');
             $table->datetime('date_end');
+            $table->string('img')->nullable();
             $table->foreign('fields_id')->references('id')->on('fields');
             $table->foreign('own_user_id')->references('id')->on('users');
             $table->timestamps();

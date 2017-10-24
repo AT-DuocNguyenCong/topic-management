@@ -5,4 +5,7 @@ return [
 	'user' => [
         'path_upload' => 'images/user/',
     ],
+    'topic' => [
+        'path_upload' => 'images/topic/',
+    ],
 ];

@@ -25,6 +25,7 @@ Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin
 });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/profile', 'UserController');
+Route::resource('/usertopics', 'TopicController');
 
 
 Auth::routes();

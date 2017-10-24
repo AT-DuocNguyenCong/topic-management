@@ -3,6 +3,7 @@
 @section('content')
     <div id="fh5co-media-section">
       <div class="container">
+        @include('flash::message')
         <div class="row animate-box">
           <div class="col-md-8 col-md-offset-2 text-center heading-section">
             <h3>{{ __('Welcome to website') }}</h3>
@@ -12,10 +13,11 @@
         <div class="row">
           @if($topics[0] != null)
             <div class="col-md-7 animate-box">
-              <div class="fh5co-cover" style="background-image: url({{ asset('frontend/images/work-1.jpg') }});">
+              {{-- {{dd($topics[0])}} --}}
+              <div class="fh5co-cover" style="background-image: url({{ $topics[0]->img != null ? asset($topics[0]->img) : asset('frontend/images/work-1.jpg') }});">
                 <div class="desc">
                   <p>{{ $topics[0]->name }}</p>
-                  <span>Web Design</span>
+                  <span>{{ $topics[0]->user->full_name }}</span>
                 </div>
               </div>
             </div>
@@ -31,7 +33,7 @@
                 <a href=""><div class="fh5co-cover-thumb" style="background-image: url({{ asset('frontend/images/work-3.jpg') }}"></div></a>
                 <div class="desc-thumb">
                   <p>{{ $topic->name }}</p>
-                  <span>Web Design</span>
+                  <span>{{ $topic->user->full_name }}</span>
                 </div>
               </div>
               @endforeach
