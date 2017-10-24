@@ -21,7 +21,7 @@ class Topic extends Model
      * @var array
      */
     protected $fillable = [
-    	'id',
+    	  'id',
         'name',
         'fields_id',
         'level_id',
@@ -46,8 +46,7 @@ class Topic extends Model
     */
     public function field()
     {
-        // return $this->belongsTo(Field::class, 'fields_id');
-        return $this->hasOne(Field::class, 'fields_id');
+        return $this->belongsTo(Field::class, 'field_id');
     }
 
 

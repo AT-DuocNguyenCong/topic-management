@@ -48,13 +48,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // /**
-    //  * Relationship belongsTo with place
-    //  *
-    //  * @return array
-    // */
-    // public function topics()
-    // {
-    //     return $this->hasMany(Topic::class);
-    // }
+
+  
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
 }

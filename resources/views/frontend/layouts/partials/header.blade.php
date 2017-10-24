@@ -10,7 +10,7 @@
             <div class="col-md-9 main-nav">
               <ul class="nav text-right">
                 <li class="active"><a href="/"><span>{{__('Home')}}</span></a></li>
-                <li><a href="">{{ __('Science Topics') }}</a></li>
+                <li><a href="{{ route('user.fields.index') }}">{{ __('Science Topics') }}</a></li>
                 <li><a href="">{{ __('About US') }}</a></li>
                 <li><a href="">{{ __('Contact') }}</a></li>
                 <li>

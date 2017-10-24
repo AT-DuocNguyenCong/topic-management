@@ -16,7 +16,7 @@ class CreateTopicsTable extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-            $table->integer('fields_id')->unsigned();
+            $table->integer('field_id')->unsigned();
             $table->integer('level_id')->unsigned();
             $table->double('expense');
             $table->text('over_view');
