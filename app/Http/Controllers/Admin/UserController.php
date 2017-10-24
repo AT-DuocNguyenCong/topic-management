@@ -101,7 +101,7 @@ class UserController extends Controller
 
         if ($user->update($request->all())) {
             flash(__('Update success'))->success();
-            return redirect()->route('user.show', $id);
+            return redirect()->back();
         } else {
             flash(__('Update failure'))->error();
             return redirect()->back()->withInput();

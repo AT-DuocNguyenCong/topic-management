@@ -22,5 +22,8 @@ Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin
     Route::put('/user/{id}/role', 'UserController@updateRole')->name('user.updateRole');
     Route::get('/pending/topics', 'TopicController@topicsPending')->name('topics.pending');
 });
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/profile', 'UserController');
+
 
 Auth::routes();
