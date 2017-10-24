@@ -48,6 +48,7 @@
 
   <!-- Main JS (Do not remove) -->
   <script src="{{ asset('frontend/js/main.js') }}"></script>
+  <script src="{{ asset('frontend/js/custom.js') }}"></script>
   </div>
   </body>
 </html>

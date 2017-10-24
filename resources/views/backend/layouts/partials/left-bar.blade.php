@@ -13,7 +13,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header"> {{ __('Management tools') }} </li>
-      <li class="active treeview">
+      <li class="treeview">
         <a href="#">
           <i class="fa fa-dashboard"></i> <span>{{__('My profile')}}</span>
           <span class="pull-right-container">
@@ -21,7 +21,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="active"><a href="{{ route('user.edit', Auth::user()->id ) }}"><i class="fa fa-circle-o"></i> {{ __('Update profile') }} </a></li>
+          <li class=""><a href="{{ route('user.edit', Auth::user()->id ) }}"><i class="fa fa-circle-o"></i> {{ __('Update profile') }} </a></li>
           <li><a href="{{ route('user.show', Auth::user()->id ) }}"><i class="fa fa-circle-o"></i> {{ __('Show profile') }} </a></li>
         </ul>
       </li>

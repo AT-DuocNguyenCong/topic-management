@@ -886,3 +886,16 @@ a {
 .mt-20 {
   margin-top: 20px;
 }
+.cls-font-20 {
+  font-size: 15px;
+}
+.cls-modal-booking {
+    margin: 20vh auto 0px auto;
+}
+.cls-modal-booking-text {
+    font-size: 21px;
+    margin-top: 14%;
+}
+.cls-modal-booking-footer a {
+    margin-top: 5%;
+}

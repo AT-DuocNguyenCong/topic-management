@@ -29,6 +29,6 @@ class Field extends Model
     }
     public function topicLimit()
     {
-        return $this->hasMany(Topic::class)->limit(3);
+        return $this->hasMany(Topic::class, 'fields_id')->limit(3);
     }
 }

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Message;
 use App\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TopicController extends Controller
 {
@@ -71,9 +73,9 @@ class TopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Topic $topic)
     {
-        //
+        return view('backend.topics.accept', compact('topic'));
     }
 
     /**
@@ -102,6 +104,30 @@ class TopicController extends Controller
             return redirect()->route('topics.index');
         } else {
             flash(__('Delete failure'))->error();
+            return redirect()->route('topics.index');
+        }
+    }
+
+    public function adminUpdateStatus(Request $request, $id)
+    {
+        $topic = Topic::with('user')->findOrFail($id);
+        $topic->status = $request['status'];
+
+        $message = new Message();
+        $message->sender_id = Auth::user()->id;
+        $message->reciever_id = $topic->user->id;
+        $message->status = Message::STATUS_PENDING;
+        if ($topic->status == Topic::STATUS_FINISH) {
+            $message->content = 'Your topic finished. Thank you!';
+        } else {
+            $message->content = $request->content;
+        }
+
+        if($topic->save() && $message->save()) {
+            flash(__('Update status success!'))->success();
+            return redirect()->route('topics.index');
+        } else {
+            flash(__('failure'))->error();
             return redirect()->route('topics.index');
         }
     }

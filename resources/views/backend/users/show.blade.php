@@ -31,7 +31,7 @@
                                      src="{{ $user->path == null ? asset('img/default1.jpg') : asset($user->path) }}"
                                      data-original-title="Usuario">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8"">
                                 <div class="table-responsive">
                                     <table class="table table-condensed table-responsive table-user-information has-description">
                                         <tbody>

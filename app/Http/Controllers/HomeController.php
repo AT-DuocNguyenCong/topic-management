@@ -19,14 +19,8 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        if (Auth::check()) {
-           $messages = Message::where([
-                ['reciever_id', Auth::user()->id],
-                ['status', Message::STATUS_PENDING],
-            ])->get();
-        }
     	$topics = Topic::where('status', Topic::STATUS_IN_PROGRESS)
     			->orWhere('status', Topic::STATUS_FINISH)->orderby('id', 'DESC')->paginate(4);
-        return view('frontend.home.index', compact('topics', 'messages'));
+        return view('frontend.home.index', compact('topics'));
     }
 }

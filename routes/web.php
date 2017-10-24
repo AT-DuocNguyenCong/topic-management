@@ -25,6 +25,7 @@ Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin
     Route::resource('/academicsrank', 'AcademicRankController');
     Route::resource('/topics', 'TopicController');
     Route::put('/user/{id}/role', 'UserController@updateRole')->name('user.updateRole');
+    Route::put('/topics/{id}/status', 'TopicController@adminUpdateStatus')->name('topics.updateStatus');
     Route::get('/pending/topics', 'TopicController@topicsPending')->name('topics.pending');
 });
 Route::get('/home', 'HomeController@index')->name('home');

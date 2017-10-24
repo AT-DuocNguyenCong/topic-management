@@ -21,7 +21,7 @@ class Topic extends Model
      * @var array
      */
     protected $fillable = [
-    	  'id',
+    	'id',
         'name',
         'fields_id',
         'level_id',
@@ -46,7 +46,7 @@ class Topic extends Model
     */
     public function field()
     {
-        return $this->belongsTo(Field::class, 'field_id');
+        return $this->belongsTo(Field::class, 'fields_id');
     }
 
 
@@ -68,5 +68,12 @@ class Topic extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'own_user_id');
+    }
+
+
+    public static function getPendingTopics()
+    {
+        $topics = Topic::where('status', Topic::STATUS_PENDING_ADMIN)->get();
+        return $topics;
     }
 }

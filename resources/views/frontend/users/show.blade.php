@@ -8,7 +8,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     @if(isset($user))
-        <div class="panel-body inf-content">
+        <div class="panel-body inf-content cls-font-20">
             @include('flash::message')
             <div class="row">
                 <div class="col-xs-12">

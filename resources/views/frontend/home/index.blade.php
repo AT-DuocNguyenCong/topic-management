@@ -14,12 +14,14 @@
           @if($topics[0] != null)
             <div class="col-md-7 animate-box">
               {{-- {{dd($topics[0])}} --}}
+              <a href="{{ route('user.topics.show', $topics[0]->id) }}">
               <div class="fh5co-cover" style="background-image: url({{ $topics[0]->img != null ? asset($topics[0]->img) : asset('frontend/images/work-1.jpg') }});">
                 <div class="desc">
                   <p>{{ $topics[0]->name }}</p>
                   <span>{{ $topics[0]->user->full_name }}</span>
                 </div>
               </div>
+              </a>
             </div>
           @endif
 
@@ -30,8 +32,9 @@
                 @continue
               @endif
               <div class="fh5co-cover-hero animate-box">
-                <a href=""><div class="fh5co-cover-thumb" style="background-image: url({{ asset('frontend/images/work-3.jpg') }}"></div></a>
-                <div class="desc-thumb">
+              <a href="{{ route('user.topics.show', $topic->id) }}">
+                  <div class="fh5co-cover-thumb" style="background-image: url({{ asset('frontend/images/work-3.jpg') }}"></div></a>
+                  <div class="desc-thumb">
                   <p>{{ $topic->name }}</p>
                   <span>{{ $topic->user->full_name }}</span>
                 </div>

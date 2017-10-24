@@ -51,7 +51,7 @@
                     <tr>
                       <td>{{ $topic->id }}</td>
                       <td>
-                        <a href="{{ route('topics.show', $topic->id) }}">
+                        <a href="{{ route('topics.edit', $topic->id) }}">
                           {{ $topic->name }}
                         </a>
                       </td>

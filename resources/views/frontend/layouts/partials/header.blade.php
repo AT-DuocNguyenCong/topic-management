@@ -15,18 +15,21 @@
                 <li>
 
                 @if (Auth::check())
+                @php($messages = App\Message::getMessages(Auth::user()->id))
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{{ Auth::user()->path == null ? asset('img/default1.jpg') : asset(Auth::user()->path) }}" class="img-circle user-image" alt="User Image">
-                    <span class="hidden-xs">{{ Auth::user()->full_name }}<sup class="badge" style="background-color: red;margin-left: 1px">  {{ $messages->count()> 0 ? ' '.$messages->count() : '' }}</sup></span>
+                    <span class="hidden-xs">{{ Auth::user()->full_name }}<sup class="badge" style="background-color: red;margin-left: 1px">{{ $messages->count()> 0 ? ' '.$messages->count() : '' }}</sup></span>
                   </a>
                   <ul class="dropdown-menu">
                     <!-- Menu Footer-->
                     <div>
-                      <a href="{{ route('profile.show', Auth::user()->id) }}" class="btn btn-xs pull-left user-dropdown">{{ __('Profile') }}</a>
+                      <a href="{{ route('profile.show', Auth::user()->id) }}" class="btn btn-xs pull-left user-dropdown">{{ __('Your Profile') }}</a>
                       @if(Auth::user()->is_admin == App\User::ROLE_ADMIN)
                         <a href="{{ route('admin.index')}}" class="btn btn-xs pull-left user-dropdown">{{ __('Admin Management') }}</a>
                       @endif
                       <a class="btn btn-xs pull-left user-dropdown" href="">{{ __('You have :message message', ['message' => $messages->count()]  ) }}</a>
+                      <a class="btn btn-xs pull-left user-dropdown" href="{{ route('usertopics.create') }}">{{ __('New a Topic') }}</a>
+
                       <a href="{{ route('logout') }}" id="logout" class="btn btn-xs pull-left user-dropdown">{{__('Log out')}}</a>
                       <form id="logout-form" action="{{ route('logout') }}" method="POST" hidden="">
                         {{ csrf_field() }}
