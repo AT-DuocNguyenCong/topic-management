@@ -862,7 +862,6 @@ input[type="text"] {
     width: 70%;
     margin-left: 17%;
 }
-
 .user-image {
   width: 40px;
 }
@@ -878,6 +877,12 @@ a {
 .cls-rank-style {
   font-size: 14px;
 }
+.nopadding {
+   padding: 0 !important;
+}
 .nopadding-r {
-  padding-right: 0px !important;
+   padding-right: 0 !important;
+}
+.mt-20 {
+  margin-top: 20px;
 }

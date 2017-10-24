@@ -1,36 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Field;
 use App\Topic;
 use Illuminate\Http\Request;
 
-class TopicController extends Controller
+class FieldController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $topics = Topic::with('user')->orderby('id', 'DESC')->paginate(10);
-        return view('backend.topics.index', compact('topics'));
-    }
-
-    /**
-     * 
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function topicsPending()
-    {   
-        $topics = Topic::orderby('id', 'DESC')->paginate(10);
-
-        $topics = Topic::where('status', Topic::STATUS_PENDING_ADMIN)->orderby('id', 'DESC')->paginate(10);
-        return view('backend.topics.index', compact('topics'));
+    {    
+        $fields = Field::whereHas('topicLimit', function ($query) {
+            }, '>', 0)->paginate(5);
+            
+        return view('frontend.fields.index', compact('fields'));
     }
 
     /**
@@ -96,13 +84,6 @@ class TopicController extends Controller
      */
     public function destroy($id)
     {
-        $topic = Topic::findOrFail($id);
-        if ($topic->delete()) {
-            flash(__('Delete success!'))->success();
-            return redirect()->route('topics.index');
-        } else {
-            flash(__('Delete failure'))->error();
-            return redirect()->route('topics.index');
-        }
+        //
     }
 }

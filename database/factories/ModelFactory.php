@@ -48,7 +48,7 @@ $factory->define(App\Level::class, function (Faker $faker) {
 $factory->define(App\Topic::class, function (Faker $faker) {
     return [
         'name' => $faker->unique()->sentence($nbWords = 6, $variableNbWords = true),
-        'fields_id' => $faker->numberBetween($min = 1, $max = 30),
+        'field_id' => $faker->numberBetween($min = 1, $max = 30),
         'level_id' => $faker->numberBetween($min = 1, $max = 30),
         'expense' => $faker->numberBetween($min = 10000000, $max = 100000000),
         'over_view' => $faker->text,

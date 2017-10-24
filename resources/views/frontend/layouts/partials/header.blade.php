@@ -10,9 +10,10 @@
             <div class="col-md-9 main-nav">
               <ul class="nav text-right">
                 <li class="active"><a href="/"><span>{{__('Home')}}</span></a></li>
-                <li><a href="">{{ __('Science Topics') }}</a></li>
+                <li><a href="{{ route('user.fields.index') }}">{{ __('Science Topics') }}</a></li>
                 <li><a href="">{{ __('About US') }}</a></li>
                 <li>
+
                 @if (Auth::check())
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{{ Auth::user()->path == null ? asset('img/default1.jpg') : asset(Auth::user()->path) }}" class="img-circle user-image" alt="User Image">
