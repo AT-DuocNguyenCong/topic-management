@@ -15,7 +15,7 @@
             <div class="col-md-7 animate-box">
               {{-- {{dd($topics[0])}} --}}
               <a href="{{ route('user.topics.show', $topics[0]->id) }}">
-              <div class="fh5co-cover" style="background-image: url({{ $topics[0]->img != null ? asset($topics[0]->img) : asset('frontend/images/work-1.jpg') }});">
+              <div class="fh5co-cover cls-effect-2" style="background-image: url({{ $topics[0]->img != null ? asset($topics[0]->img) : asset('frontend/images/work-1.jpg') }});">
                 <div class="desc">
                   <p>{{ $topics[0]->name }}</p>
                   <span>{{ $topics[0]->user->full_name }}</span>
@@ -31,9 +31,9 @@
               @if ($topic == $topics[0])
                 @continue
               @endif
-              <div class="fh5co-cover-hero animate-box">
+              <div class="fh5co-cover-hero animate-box cls-effect">
               <a href="{{ route('user.topics.show', $topic->id) }}">
-                  <div class="fh5co-cover-thumb" style="background-image: url({{ $topic->img != null ? asset($topic->img) : asset('frontend/images/work-1.jpg') }})"></div></a>
+                  <div class="fh5co-cover-thumb" style="background-image: url({{ $topic->img != null ? asset($topic->img) : asset('frontend/images/work-1.jpg') }}); height: 120px"></div></a>
                   <div class="desc-thumb">
                   <p>{{ $topic->name }}</p>
                   <span>{{ $topic->user->full_name }}</span>
@@ -43,7 +43,7 @@
             </div>
           </div>
         </div>
-        <p class="pull-right" style="font-size: 30px"><a href="{{ route('user.fields.index') }}">{{ __('See more') }}</a></p>
+        <p class="pull-right cls-hover-link" style="font-size: 30px"><a href="{{ route('user.fields.index') }}">{{ __('See more') }}</a></p>
       </div>
     </div>
     <!-- END fh5co-intro-section -->

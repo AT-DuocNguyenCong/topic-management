@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Message;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -47,8 +48,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
-        return view('frontend.users.show', compact('user'));
+        if ($id == Auth::user()->id) {
+            $user = User::findOrFail($id);
+            return view('frontend.users.show', compact('user'));
+        }
+        else {
+            return response()->view('frontend.errors.403');
+        }
     }
 
     /**
