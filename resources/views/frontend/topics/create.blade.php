@@ -4,6 +4,10 @@
 
 @section('content')
   <div class=" container content-wrapper">
+    @if (session('msg'))
+      <div id="msg-booking" hidden="">{{ session('msg') }}</div>
+      @include('frontend.topics.modal')
+    @endif
     <!-- Main content -->
     <div class="alert cls-alert-info">
         <p class="text-primary">{{ __('Hello ') }} <strong>{{ Auth::user()->full_name }}</strong> {{ __('to create a scientific subject you need to fill out the information below fully and accurately.') }}</p>

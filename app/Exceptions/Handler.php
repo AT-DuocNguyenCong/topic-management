@@ -51,12 +51,28 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {   
         if ($exception instanceof ModelNotFoundException) {
-            return response()->view('backend.errors.404');
+            return response()->view($this->getView404());
+        }
+        if ($exception instanceof NotFoundHttpException) {
+            return response()->view($this->getView404());
         }
         if ($exception instanceof NotFoundHttpException) {
             return response()->view('frontend.errors.404');
         }
         return parent::render($request, $exception);
 
+    }
+
+    /**
+     * Get 404 error page with prefix name
+     *
+     * @return string
+     */
+    protected function getView404()
+    {
+        if (request()->is('admin/*')) {
+            return "backend.errors.404";
+        }
+        return "frontend.errors.404";
     }
 }

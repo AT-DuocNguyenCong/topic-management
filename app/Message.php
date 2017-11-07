@@ -35,4 +35,15 @@ class Message extends Model
     {
         return $this->belongsTo(User::class, 'sender_id');
     }
+
+    public static function getMessages($id)
+    {
+       $messages = Message::where([
+            ['reciever_id', $id],
+            ['status', Message::STATUS_PENDING],
+        ])->get();
+        return $messages;
+    }
+
+
 }

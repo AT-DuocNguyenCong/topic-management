@@ -8,7 +8,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     @if(isset($user))
-        <div class="panel-body inf-content">
+        <div class="container inf-content cls-font-20">
             @include('flash::message')
             <div class="row">
                 <div class="col-xs-12">
@@ -246,7 +246,7 @@
                                                     @foreach($user->userAcademicsrank as $value)
                                                         <li>{{$value->academicsrank->name}}</li>
                                                     @endforeach
-                                                    <li><a href="{{ route('profile.academicsrank.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>   
+                                                    <li><a class="btn btn-primary" href="{{ route('profile.academicsrank.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>   
                                                 </ul>
                                             </td>
                                         </tr>

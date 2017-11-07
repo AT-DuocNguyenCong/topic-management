@@ -10,26 +10,40 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'HomeController@index')->name('home.index');
-Route::group(['as' => 'user.'], function() {
 
-   Route::resource('/fields', 'FieldController');
-   Route::resource('/topics', 'TopicController');
+Route::group(['middleware' => 'language'],
+    function() {
+        Route::get('/', 'HomeController@index')->name('home.index');
+        Route::group(['as' => 'user.'], function() {
+
+           Route::resource('/fields', 'FieldController');
+           Route::resource('/topics', 'TopicController');
+        });
+
+    Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin'], function() {
+        Route::get('/', 'HomeController@index')->name('admin.index');
+        Route::resource('/user', 'UserController');
+        Route::resource('/levels', 'LevelController');
+        Route::resource('/fields', 'FieldController');
+        Route::resource('/academicsrank', 'AcademicRankController');
+        Route::resource('/topics', 'TopicController');
+        Route::put('/user/{id}/role', 'UserController@updateRole')->name('user.updateRole');
+        Route::put('/topics/{id}/status', 'TopicController@adminUpdateStatus')->name('topics.updateStatus');
+        Route::get('/pending/topics', 'TopicController@topicsPending')->name('topics.pending');
+    });
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/profile', 'UserController');
+    Route::resource('profile.academicsrank', 'AcademicRankController', ['only' => ['create', 'store']]);
+    Route::resource('/usertopics', 'TopicController');
+    Route::get('/messages/{id}/show', 'UserController@showMessage')->name('messages.show');
+    Route::get('/about', function() {
+        return view('frontend.static_pages.about');
+    })->name('about.us');
+
 });
 
-Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin'], function() {
-    Route::get('/', 'HomeController@index')->name('admin.index');
-    Route::resource('/user', 'UserController');
-    Route::resource('/levels', 'LevelController');
-    Route::resource('/fields', 'FieldController');
-    Route::resource('/academicsrank', 'AcademicRankController');
-    Route::resource('/topics', 'TopicController');
-    Route::put('/user/{id}/role', 'UserController@updateRole')->name('user.updateRole');
-    Route::get('/pending/topics', 'TopicController@topicsPending')->name('topics.pending');
-});
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/profile', 'UserController');
-Route::resource('profile.academicsrank', 'AcademicRankController', ['only' => ['create', 'store']]);
-Route::resource('/usertopics', 'TopicController');
+Route::get('/language/{lang}', 'LanguageController@show')
+            ->middleware('language')->name('language')
+            ->where('lang', 'vi|en');
 
 Auth::routes();
