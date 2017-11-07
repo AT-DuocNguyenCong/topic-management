@@ -31,7 +31,7 @@
         <a href="{{ route('user.index') }}">
           <i class="fa fa-male"></i> <span>{{__('Users Management')}}</span>
           <span class="pull-right-container">
-            <small class="label pull-right bg-green">new</small>
+            <small class="label pull-right bg-green"></small>
           </span>
         </a>
       </li>
@@ -41,7 +41,7 @@
           <i class="fa fa-files-o"></i>
           <span>{{__('Topics Management')}}</span>
           <span class="pull-right-container">
-            <span class="label label-primary pull-right">4</span>
+            <span class="label label-primary pull-right">2</span>
           </span>
         </a>
         <ul class="treeview-menu">

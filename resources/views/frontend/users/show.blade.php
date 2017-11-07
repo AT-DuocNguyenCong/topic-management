@@ -246,7 +246,7 @@
                                                     @foreach($user->userAcademicsrank as $value)
                                                         <li>{{$value->academicsrank->name}}</li>
                                                     @endforeach
-                                                    <li><a href="{{ route('profile.academicsrank.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>   
+                                                    <li><a class="btn btn-primary" href="{{ route('profile.academicsrank.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>   
                                                 </ul>
                                             </td>
                                         </tr>

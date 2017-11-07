@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -82,5 +83,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showMessage($id)
+    {
+        $messages = Message::where('reciever_id', $id)->orderby('id', 'DESC')->paginate(3);
+
+        return view('frontend.messages.index', compact('messages'));
     }
 }

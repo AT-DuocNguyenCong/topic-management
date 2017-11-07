@@ -32,5 +32,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/profile', 'UserController');
 Route::resource('profile.academicsrank', 'AcademicRankController', ['only' => ['create', 'store']]);
 Route::resource('/usertopics', 'TopicController');
+Route::get('/messages/{id}/show', 'UserController@showMessage')->name('messages.show');
 
 Auth::routes();

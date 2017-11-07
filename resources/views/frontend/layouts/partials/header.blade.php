@@ -1,3 +1,4 @@
+{{-- header --}}
 <header role="banner" id="fh5co-header">
       <div class="container">
         <nav class="navbar navbar-default">
@@ -9,9 +10,9 @@
             </div>
             <div class="col-md-9 main-nav">
               <ul class="nav text-right">
-                <li class="active"><a href="/"><span>{{__('Home')}}</span></a></li>
-                <li><a href="{{ route('user.fields.index') }}">{{ __('Science Topics') }}</a></li>
-                <li><a href="">{{ __('About US') }}</a></li>
+                <li class="{{isActiveRoute('home.index')}}"><a href="{{ route('home.index') }}"><span>{{__('Home')}}</span></a></li>
+                <li class="{{isActiveRoute('user.fields.index')}}"><a href="{{ route('user.fields.index') }}">{{ __('Science Topics') }}</a></li>
+                <li class="{{isActiveRoute('')}}"><a href="">{{ __('About US') }}</a></li>
                 <li>
 
                 @if (Auth::check())
@@ -27,7 +28,7 @@
                       @if(Auth::user()->is_admin == App\User::ROLE_ADMIN)
                         <a href="{{ route('admin.index')}}" class="btn btn-xs pull-left user-dropdown">{{ __('Admin Management') }}</a>
                       @endif
-                      <a class="btn btn-xs pull-left user-dropdown" href="">{{ __('You have :message message', ['message' => $messages->count()]  ) }}</a>
+                      <a class="btn btn-xs pull-left user-dropdown" href="{{ route('messages.show', Auth::user()->id) }}">{{ __('You have :message message', ['message' => $messages->count()]  ) }}</a>
                       <a class="btn btn-xs pull-left user-dropdown" href="{{ route('usertopics.create') }}">{{ __('New a Topic') }}</a>
 
                       <a href="{{ route('logout') }}" id="logout" class="btn btn-xs pull-left user-dropdown">{{__('Log out')}}</a>

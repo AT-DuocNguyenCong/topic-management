@@ -21,10 +21,10 @@ class DatabaseSeeder extends Seeder
         Topic::truncate();
         Field::truncate();
 
-        factory(User::class, 30)->create();
-        factory(Field::class, 30)->create();
-        factory(Level::class, 30)->create();
-        factory(Topic::class, 30)->create();
+        factory(User::class, 15)->create();
+        factory(Field::class, 5)->create();
+        factory(Level::class, 5)->create();
+        factory(Topic::class, 20)->create();
 
     }
 }

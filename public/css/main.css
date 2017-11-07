@@ -51,3 +51,94 @@
 .cls-dialog-modal{
     width: 1136px;
 }
+#top-header, #top-header a {
+    background: #272727;
+    color: #939393;
+    font-size: 11px;
+}
+#top-header a:hover, #top-header .th-text .th-item .btn-group .btn-default:hover {
+    color: #fff;
+    text-decoration: none;
+}
+#top-header i {
+    font-size: 14px;
+    padding-right: 5px;
+}
+#top-header .th-text {
+    padding: 10px 0;
+    font-size: 11px;
+}
+#top-header .th-text .th-item {
+    margin: 0;
+    padding: 0;
+}
+#top-header .th-text .th-item {
+    display: inline-block;
+    padding: 0 10px;
+    line-height: 10px;
+    border-right: 1px solid #3c3c3c;
+}
+#top-header .th-text .th-item:first-child {
+    padding-left: 0;
+}
+#top-header .th-text .th-item:last-child {
+    border-right: none;
+}
+/* Language Dropdown */
+#top-header .th-text .th-item .btn-group {
+    z-index: 9999;
+    margin-top: -6px;
+}
+#top-header .th-text .th-item .btn-group .btn-default {
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    text-transform: uppercase;
+    font-size: 11px;
+    background: none; /* FF3.6+ */
+    filter: none; /* IE6-9 */
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+    font-weight: normal;
+}
+#top-header .th-text .th-item .btn-group:hover {
+    color: #fff;
+}
+#top-header .th-text .th-item .btn-group ul.dropdown-menu {
+    font-size: 11px;
+    background-color: #272727;
+    padding: 0;
+    line-height: 20px;
+    border: none;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-top: 12px;
+}
+#top-header .th-text .th-item .btn-group .btn-default span.caret {
+    margin-left: 5px;
+    margin-top: -4px;
+}
+#top-header .th-text .th-item .btn-group ul.dropdown-menu > li > a {
+    padding: 10px 20px;
+    color: #939393;
+    text-transform: uppercase;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+}
+#top-header .th-text .th-item .btn-group ul.dropdown-menu > li > a:hover {
+    color: #fff;
+}
+/* Social Icons */
+#top-header .th-text .th-item .social-icons i {
+    padding-right: 20px;
+}

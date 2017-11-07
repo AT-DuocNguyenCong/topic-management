@@ -9,7 +9,7 @@
        <h1 class="title-page text-primary text-center">{{__('Topic Information')}}</h1>
        <div class="row margin-center">
         <div class="col-md-6">
-          <iframe src="{{ $topic->document_path != null ? asset($topic->document_path) : '' }}" style="width: 90%; height: 400px;" frameborder="0"></iframe>
+          <iframe src="{{ $topic->document_path != null ? asset($topic->document_path) : '' }}" style="width: 90%; height: 500px;" frameborder="0"></iframe>
         </div>
          <div class="col-md-6 cls-font-20 nopadding-r">
            <div class="box">

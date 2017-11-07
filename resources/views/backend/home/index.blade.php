@@ -43,7 +43,7 @@
                       <p>{{ __('Topics') }}</p>
                     </div>
                     <div class="icon">
-                      <i class="ion ion-person-add"></i>
+                      <i class="ion ion-pie-graph"></i>
                     </div>
                     <a href="{{ route('topics.index') }}" class="small-box-footer">{{ __('More info') }} <i class="fa fa-arrow-circle-right"></i></a>
                   </div>
@@ -55,7 +55,7 @@
                       <p>{{ __('Users') }}</p>
                     </div>
                     <div class="icon">
-                      <i class="ion ion-pie-graph"></i>
+                      <i class="ion ion-person-add"></i>
                     </div>
                     <a href="{{ route('user.index') }}" class="small-box-footer">{{ __('More info') }} <i class="fa fa-arrow-circle-right"></i></a>
                   </div>

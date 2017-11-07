@@ -6,7 +6,7 @@
         @include('flash::message')
         <div class="row animate-box">
           <div class="col-md-8 col-md-offset-2 text-center heading-section">
-            <h3>{{ __('Welcome to website') }}</h3>
+            <h3>{{ __('Welcome to SCIENCE TOPICS MANAGEMENT') }}</h3>
             <p>The University of Danang, founded in 1994, is one of three regional universities in Vietnam, based in Da Nang City. Da Nang University is currently a multi-disciplinary university, one of 18 major national universities in Vietnam.</p>
           </div>
         </div>
@@ -33,7 +33,7 @@
               @endif
               <div class="fh5co-cover-hero animate-box">
               <a href="{{ route('user.topics.show', $topic->id) }}">
-                  <div class="fh5co-cover-thumb" style="background-image: url({{ asset('frontend/images/work-3.jpg') }}"></div></a>
+                  <div class="fh5co-cover-thumb" style="background-image: url({{ $topic->img != null ? asset($topic->img) : asset('frontend/images/work-1.jpg') }})"></div></a>
                   <div class="desc-thumb">
                   <p>{{ $topic->name }}</p>
                   <span>{{ $topic->user->full_name }}</span>
@@ -43,7 +43,7 @@
             </div>
           </div>
         </div>
-        <p class="pull-right" style="font-size: 30px"><a href="">{{ __('See more') }}</a></p>
+        <p class="pull-right" style="font-size: 30px"><a href="{{ route('user.fields.index') }}">{{ __('See more') }}</a></p>
       </div>
     </div>
     <!-- END fh5co-intro-section -->
@@ -52,14 +52,15 @@
         <div class="row">
           <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
             <h3>Gallery</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            <p>Danang University of Technology - University of Danang, which is one of the Technical Universities partners, has joined Higher Engineering Education Alliance Program (HEEAP)
+Cadence Makes Multimillion Dollar In-Kind Donation to HEEAP to Help Prepare Engineering Students in Vietnam</p>
           </div>
         </div>
         <div class="owl-carousel owl-carousel2">
-          <div class="item animate-box"><a href="images/product-1.jpg" class="image-popup"><img src="{{ asset('frontend/images/product-1.jpg') }}" alt="image"></a></div>
-          <div class="item animate-box"><a href="images/product-2.jpg" class="image-popup"><img src="{{ asset('frontend/images/product-2.jpg') }}" alt="image"></a></div>
-          <div class="item animate-box"><a href="images/product-3.jpg" class="image-popup"><img src="{{ asset('frontend/images/product-3.jpg') }}" alt="image"></a></div>
-          <div class="item animate-box"><a href="images/product-4.jpg" class="image-popup"><img src="{{ asset('frontend/images/product-4.jpg') }}" alt="image"></a></div>
+          <div class="item animate-box"><a href="images/product-1.jpg" class="image-popup"><img src="{{ asset('images/topic/topic_default3.jpg') }}" alt="image"></a></div>
+          <div class="item animate-box"><a href="images/product-2.jpg" class="image-popup"><img src="{{ asset('images/topic/topic_default4.jpg') }}" alt="image"></a></div>
+          <div class="item animate-box"><a href="images/product-3.jpg" class="image-popup"><img src="{{ asset('images/topic/topic_default3.jpg') }}" alt="image"></a></div>
+          <div class="item animate-box"><a href="images/product-4.jpg" class="image-popup"><img src="{{ asset('images/topic/topic_default4.jpg') }}" alt="image"></a></div>
         </div>
       </div>
     </div>
@@ -78,18 +79,18 @@
           </div>
           <div class="col-md-4 animate-box">
             <div class="fh5co-inner">
-              <i class="icon-strategy"></i>
+              <i class="icon-phone"></i>
               <div class="holder-section">
-                <h3>What We Doe</h3>
+                <h3>Contact</h3>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
               </div>
             </div>
           </div>
           <div class="col-md-4 animate-box">
             <div class="fh5co-inner">
-              <i class="icon-bike"></i>
+              <i class="icon-shield"></i>
               <div class="holder-section">
-                <h3>Why We Choose Us</h3>
+                <h3>About Danang University</h3>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
               </div>
             </div>

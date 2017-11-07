@@ -42,7 +42,7 @@
                        </strong>
                      </td>
                      <td>
-                      {{ $topic->user->username }}
+                      <a href="{{ route('user.show', $topic->user->id) }}">{{ $topic->user->full_name }}</a>
                    </tr>
                    <tr>
                      <td>
@@ -121,7 +121,7 @@
                        </strong> 
                      </td>
                      <td>
-                      sad
+                        {{ $topic->date_begin }}
                      </td>
                    </tr>
                    <tr>
@@ -132,7 +132,7 @@
                        </strong> 
                      </td>
                      <td>
-                      sad
+                        {{ $topic->date_end }}
                      </td>
                    </tr>
                  </tbody>

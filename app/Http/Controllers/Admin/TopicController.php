@@ -118,7 +118,9 @@ class TopicController extends Controller
         $message->reciever_id = $topic->user->id;
         $message->status = Message::STATUS_PENDING;
         if ($topic->status == Topic::STATUS_FINISH) {
-            $message->content = 'Your topic finished. Thank you!';
+            $message->content = <<<EOD
+            <p> Your topic finished. </p> Thank you!<a href="'. route('user.topics.show', $topic->id) .'">Please click to show detail</a>
+EOD;
         } else {
             $message->content = $request->content;
         }

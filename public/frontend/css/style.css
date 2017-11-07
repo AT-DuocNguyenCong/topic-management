@@ -894,8 +894,18 @@ a {
 }
 .cls-modal-booking-text {
     font-size: 21px;
-    margin-top: 14%;
+    margin-top: 4%;
 }
 .cls-modal-booking-footer a {
     margin-top: 5%;
+}
+.pagination li a {
+    line-height: 1.42857;
+    text-decoration: none;
+    color: #a980cd;
+}
+.pagination .active  span {
+    color: #fff;
+    background-color: #a980cd;
+    border-color: #a980cd;
 }
