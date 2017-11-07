@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
   <title>@yield('title')</title>
@@ -48,6 +48,8 @@
 
   <!-- Main JS (Do not remove) -->
   <script src="{{ asset('frontend/js/main.js') }}"></script>
+  <script src="{{ asset('frontend/js/custom.js') }}"></script>
+
   </div>
   </body>
 </html>

@@ -26,7 +26,7 @@ a {
   transition: 0.5s;
 }
 a:hover {
-  text-decoration: underline !important;
+  text-decoration: none !important;
   color: #a980cd !important;
 }
 a:focus, a:active {
@@ -885,4 +885,59 @@ a {
 }
 .mt-20 {
   margin-top: 20px;
+}
+.cls-font-20 {
+  font-size: 15px;
+}
+.cls-modal-booking {
+    margin: 20vh auto 0px auto;
+}
+.cls-modal-booking-text {
+    font-size: 21px;
+    margin-top: 4%;
+}
+.cls-modal-booking-footer a {
+    margin-top: 5%;
+}
+.pagination li a {
+    line-height: 1.42857;
+    text-decoration: none;
+    color: #a980cd;
+}
+.pagination .active  span {
+    color: #fff;
+    background-color: #a980cd;
+    border-color: #a980cd;
+}
+.cls-hover-link a:hover {
+    padding-left: 15px;
+    padding-right: 150px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+.cls-effect:hover {
+    border: 1px solid #a980cd;    
+    box-shadow: 0 5px 15px #a980cd ;
+    background-color: #f5f5f5;
+    padding-bottom: 4px;
+    transition: 0.5s;
+    /*padding-right: 60px;*/
+    width: 110%;
+}
+.cls-effect:after {    
+    clear: both;
+    content: "";
+    display: block;
+}
+.cls-effect-2:hover {
+    border: 1px solid #a980cd;    
+    box-shadow: 0 5px 15px #a980cd ;
+    transition: 0.5s;
+    /*padding-right: 60px;*/
+    /*width: 101%;*/
+}
+.cls-effect-2:after {    
+    clear: both;
+    content: "";
+    display: block;
 }

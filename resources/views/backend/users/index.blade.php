@@ -68,7 +68,7 @@
                           {!! csrf_field() !!}
                           {{ method_field('PUT') }}
                           @if ($user->is_admin == App\User::ROLE_ADMIN)
-                            <button type="submit" class="btn btn-primary cls-buton">{{ __('Admin') }}</button>
+                            <button type="submit" class="btn btn-primary cls-buton" {{ Auth::user()->id == $user->id ? 'disabled' : '' }}>{{ __('Admin') }}</button>
                           @else
                             <button type="submit" class="btn btn-default cls-buton"> {{ __('User') }} </button>
                           @endif

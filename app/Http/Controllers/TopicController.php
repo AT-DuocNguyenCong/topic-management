@@ -39,8 +39,6 @@ class TopicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
     public function store(TopicCreateRequest $request)
     {
         // dd($request->all());
@@ -61,8 +59,7 @@ class TopicController extends Controller
         }
 
         if ($topic->save()) {
-            flash(__('Your sicence topics created successful! Please waiting for ADMIN approve'))->success();
-            return redirect()->route('home.index');
+            return redirect()->back()->with('msg', __('Success! Thank you!'));
         } else {
             flash(__('Creation failed!'))->error();
             return redirect()->back()->withInput();

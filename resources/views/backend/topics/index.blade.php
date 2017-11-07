@@ -51,11 +51,11 @@
                     <tr>
                       <td>{{ $topic->id }}</td>
                       <td>
-                        <a href="{{ route('topics.show', $topic->id) }}">
+                        <a href="{{ route('topics.edit', $topic->id) }}">
                           {{ $topic->name }}
                         </a>
                       </td>
-                      <td>{{ $topic->user->username }}</td>
+                      <td>{{ $topic->user->full_name }}</td>
                       <td>{{ $topic->max_member }}</td>
                       <td>{{ $topic->join_member }}</td>
                       @switch($topic->status)

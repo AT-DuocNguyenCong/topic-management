@@ -16,7 +16,7 @@ class FieldController extends Controller
     public function index()
     {    
         $fields = Field::whereHas('topicLimit', function ($query) {
-            }, '>', 0)->paginate(5);
+            }, '>', 0)->orderby('id', 'DESC')->paginate(4);
             
         return view('frontend.fields.index', compact('fields'));
     }

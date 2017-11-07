@@ -5,9 +5,11 @@
 @section('content')
   <div class=" container content-wrapper">
     <!-- Main content -->
-    <div class="alert cls-alert-info">
-
-      </div>
+    <div class="col-md-12">
+      <div class="alert cls-alert-info">
+      <p><strong>{{ 'Hi, '. Auth::user()->full_name }}</strong></p>
+    </div>
+    </div>
     <section class="content col-md-6">
       @include('flash::message')
       <div class="row">
@@ -24,7 +26,7 @@
                 <tbody>
                   @foreach($AcademicsrankUser as $value)
                   <tr>
-                    <td>{{$value->academicsrank->name}}</td>
+                    <td><a href="" class="btn btn-primary">{{$value->academicsrank->name}}</a></td>
                     <td>{{$value->academicsrank->created_at}}</td>
                   </tr>
                   @endforeach
@@ -49,7 +51,7 @@
                     </select>
                     <small class="text-danger">{{ $errors->first('academic_rank_id') }}</small>
                   </div>
-                  <div class="col-md-6 nopadding-r">
+                  <div class="col-md-6 nopadding-r form-group">
                     <label for="expense">{{ __('Date Gradution') }}</label>
                     <input type="date" class="form-control" name="graduate" id="graduate">
                     <small class="text-danger">{{ $errors->first('graduate') }}</small>
