@@ -11,14 +11,13 @@
 |
 */
 
-Route::group(['middleware' => 'language'],
-    function() {
+Route::group(['middleware' => 'language'], function() {
         Route::get('/', 'HomeController@index')->name('home.index');
+        Route::get('search', 'SearchController@search')->name('search.fields');
         Route::group(['as' => 'user.'], function() {
-
-           Route::resource('/fields', 'FieldController');
-           Route::resource('/topics', 'TopicController');
-        });
+        Route::resource('/fields', 'FieldController');
+        Route::resource('/topics', 'TopicController');
+    });
 
     Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin'], function() {
         Route::get('/', 'HomeController@index')->name('admin.index');

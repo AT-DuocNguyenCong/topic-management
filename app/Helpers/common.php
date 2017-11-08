@@ -1,5 +1,7 @@
 <?php
 
+use App\Field;
+
 /**
  * Start string truncating
  */
@@ -71,5 +73,22 @@ if (!function_exists('areActiveRoute')) {
         if (in_array(Route::currentRouteName(), $routes, true)) {
             return $output;
         }
+    }
+}
+
+if (!function_exists('getField')) {
+
+    /**
+     * Active menu side bar when routes menu are current route
+     *
+     * @param Array  $routes routes action
+     * @param string $output active or ''
+     *
+     * @return string
+     */
+    function getField()
+    {
+        $fields = Field::select('id', 'name')->orderby('id', 'ASC')->get();
+        return $fields;
     }
 }

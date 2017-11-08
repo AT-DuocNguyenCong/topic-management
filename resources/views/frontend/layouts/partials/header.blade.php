@@ -22,13 +22,13 @@
           <div class="row">
             <div class="col-md-3">
               <div class="fh5co-navbar-brand" style="width: 120% !important">
-                <a class="fh5co-logo" href="index.html"><span style="font-size: 30px; margin-bottom: 10px;">BKDN</span><small style="font-size: 10px">{{ __('Science topics management') }}</small></a>
+                <a class="fh5co-logo" href="{{route('home.index')}}"><span style="font-size: 30px; margin-bottom: 10px;">BKDN</span><small style="font-size: 10px">{{ __('Science topics management') }}</small></a>
               </div>
             </div>
             <div class="col-md-9 main-nav">
               <ul class="nav text-right">
                 <li class="{{isActiveRoute('home.index')}}"><a href="{{ route('home.index') }}"><span>{{__('Home')}}</span></a></li>
-                <li class="{{isActiveRoute('user.fields.index')}}"><a href="{{ route('user.fields.index') }}">{{ __('Science Topics') }}</a></li>
+                <li class="{{areActiveRoute(['user.fields.index','search.fields'])}}"><a href="{{ route('user.fields.index') }}">{{ __('Science Topics') }}</a></li>
                 <li class="{{isActiveRoute('')}}"><a href="{{ route('about.us') }}">{{ __('About US') }}</a></li>
                 @if (Auth::check())
                   <li>
@@ -45,7 +45,7 @@
                           <a href="{{ route('admin.index')}}" class="btn btn-xs pull-left user-dropdown">{{ __('Admin Management') }}</a>
                         @endif
                         <a class="btn btn-xs pull-left user-dropdown" href="{{ route('messages.show', Auth::user()->id) }}">{{ __('You have :message message', ['message' => $messages->count()]  ) }}</a>
-                        <a class="btn btn-xs pull-left user-dropdown" href="{{ route('usertopics.create') }}">{{ __('New a Topic') }}</a>
+                        <a class="btn btn-xs pull-left user-dropdown" href="{{ route('usertopics.create') }}">{{ __('Create a new Topic') }}</a>
 
                         <a href="{{ route('logout') }}" id="logout" class="btn btn-xs pull-left user-dropdown">{{__('Log out')}}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" hidden="">
