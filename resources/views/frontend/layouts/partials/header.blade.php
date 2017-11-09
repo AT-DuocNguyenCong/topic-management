@@ -16,7 +16,7 @@
     </ul>
   </div>
 {{-- header --}}
-<header role="banner" id="fh5co-header" style="">
+<header role="banner" id="fh5co-header">
       <div class="container">
         <nav class="navbar navbar-default">
           <div class="row">
@@ -29,7 +29,7 @@
               <ul class="nav text-right">
                 <li class="{{isActiveRoute('home.index')}}"><a href="{{ route('home.index') }}"><span>{{__('Home')}}</span></a></li>
                 <li class="{{areActiveRoute(['user.fields.index','search.fields'])}}"><a href="{{ route('user.fields.index') }}">{{ __('Science Topics') }}</a></li>
-                <li class="{{isActiveRoute('')}}"><a href="{{ route('about.us') }}">{{ __('About US') }}</a></li>
+                <li class="{{isActiveRoute('about.us')}}"><a href="{{ route('about.us') }}">{{ __('About Us') }}</a></li>
                 @if (Auth::check())
                   <li>
                     @php($messages = App\Message::getMessages(Auth::user()->id))
@@ -63,5 +63,7 @@
         </nav>
       </div>
     </header>
+    <button id="js-btn-search-show" class="cls-button-show-search btn btn-primary form-control cls-height-44px "><i class="glyphicon glyphicon-search"></i></button>
+    @include('frontend.layouts.partials.search')
     </div>
     <!-- END: header -->

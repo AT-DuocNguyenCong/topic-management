@@ -14,4 +14,15 @@ $(document).ready(function() {
             $('#confirm').modal('hide');
         })
     });
+    var index = 0;
+    $('#js-btn-search-show').click(function(){
+        if (index%2 == 0) {
+            $('#js-search-form').fadeIn("slow");
+            $('#js-btn-search-show').html('<i class="glyphicon glyphicon-remove">');
+        } else {
+            $('#js-search-form').fadeOut("slow");
+            $('#js-btn-search-show').html('<i class="glyphicon glyphicon-search">');
+        }
+        index++;
+    });
 });

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title', __('Profile | ' . $user->full_name))
+@section('title', __('Profile | :name',['name'=>$user->full_name]))
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -13,8 +13,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box box-primary">
-                        <div class="box-header">
-                           
+                        <div class="box-header">      
                         </div>
                         <form class="box-body" role="form" method="POST" action="{{ route('user.update', $user->id) }}" enctype="multipart/form-data">
                             {!! csrf_field() !!}
@@ -88,8 +87,7 @@
                                         <tr>
                                           <td colspan="2">
                                             <div class="alert cls-alert-info">
-                                              <strong>{{ __('User information
-') }}</strong>
+                                              <strong>{{ __('User information') }}</strong>
                                             </div>
                                           </td>
                                         </tr>
@@ -237,34 +235,37 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <strong>
-                                                    <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                    {{ __('Academics Rank') }}
-                                                </strong>
+                                              <strong>
+                                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                                {{ __('Academics Rank') }}
+                                              </strong>
                                             </td>
                                             <td>
-                                                <ul>
-                                                    @foreach($user->userAcademicsrank as $value)
-                                                        <li>{{$value->academicsrank->name}}</li>
-                                                    @endforeach
-                                                    <li><a class="btn btn-primary" href="{{ route('profile.academicsrank.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>   
-                                                </ul>
+                                              <ul>
+                                                @foreach($user->userAcademicsrank as $value)
+                                                    <li style="margin-left: -9%;">{{ '- ' }} {{ __($value->academicsrank->name) }}</li>
+                                                @endforeach
+                                                <li><a style="margin-top: 10px" class="btn btn-primary" href="{{ route('profile.academicsrank.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>   
+                                              </ul>
                                             </td>
                                         </tr>
                                         <tr>
                                           <td colspan="2">
                                             <div class="alert cls-alert-info">
-                                              <strong>{{ __('My Topics') }}</strong>
+                                              <strong>{{ __('My Topic') }}</strong>
                                             </div>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <strong>
+                                              <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                            </strong>
                                           </td>
                                         </tr>
                                         @foreach($user->topics as $topic)
                                         <tr>
                                             <td>
-                                                <strong>
-                                                    <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                    {{__('Topics name')}}
-                                                </strong>
                                             </td>
                                             <td class="text-primary">
                                                 <a href="{{route('user.topics.show', $topic)}}">{{ $topic->name }}</a>
@@ -274,20 +275,22 @@
                                         <tr>
                                           <td colspan="2">
                                             <div class="alert cls-alert-info">
-                                              <strong>{{ __('Topics Involved') }}</strong>
+                                              <strong>{{ __('Involved') }}</strong>
                                             </div>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td>
+                                            <strong>
+                                              <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                            </strong>
                                           </td>
                                         </tr>
                                         @foreach($user->usertopics as $usertopic)            
                                         <tr>
-                                            <td>
-                                                <strong>
-                                                    <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                    {{__('Topics name')}}
-                                                </strong>
-                                            </td>
+                                          <td></td>
                                             <td class="text-primary">
-                                                <a href="{{route('user.topics.show', $usertopic->topic )}}">{{$usertopic->topic->name}}</a>
+                                                <a href="{{route('user.topics.show', $usertopic->topic )}}">{{ '- '.$usertopic->topic->name}}</a>
                                             </td>
                                         </tr>
                                         @endforeach
