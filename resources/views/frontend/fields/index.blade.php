@@ -51,7 +51,7 @@
           </div>
         </div>
       @endforeach
-    <div class="text-center">{{ $fields->links() }}</div>
+    <div class="text-center">{{ $fields->appends(['fieldname' => ''])->links() }}</div>
 
       <p class="pull-right" style="font-size: 30px"><a href="">{{ __('See more') }}</a></p>
     </div>

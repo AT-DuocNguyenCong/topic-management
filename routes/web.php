@@ -19,7 +19,7 @@ Route::group(['middleware' => 'language'], function() {
         Route::resource('/topics', 'TopicController');
     });
 
-    Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>'adminLogin'], function() {
+    Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware' => ['adminLogin', 'language']], function() {
         Route::get('/', 'HomeController@index')->name('admin.index');
         Route::resource('/user', 'UserController');
         Route::resource('/levels', 'LevelController');
