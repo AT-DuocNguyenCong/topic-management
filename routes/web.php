@@ -26,6 +26,9 @@ Route::group(['middleware' => 'language'], function() {
         Route::resource('/fields', 'FieldController');
         Route::resource('/academicsrank', 'AcademicRankController');
         Route::resource('/topics', 'TopicController');
+        Route::resource('/handlerequest', 'HandleRequestJoin');
+        Route::get('/approve-request/{id}', 'HandleRequestJoin@approve')->name('request.approve');
+        Route::get('/unapprove-request/{id}', 'HandleRequestJoin@unapprove')->name('request.unapprove');
         Route::put('/user/{id}/role', 'UserController@updateRole')->name('user.updateRole');
         Route::put('/topics/{id}/status', 'TopicController@adminUpdateStatus')->name('topics.updateStatus');
         Route::get('/pending/topics', 'TopicController@topicsPending')->name('topics.pending');
@@ -38,9 +41,9 @@ Route::group(['middleware' => 'language'], function() {
     Route::get('/about', function() {
         return view('frontend.static_pages.about');
     })->name('about.us');
-
 });
 
+Route::post('/participates', 'UserController@topicParticipate')->name('topic.participates');
 Route::get('/language/{lang}', 'LanguageController@show')
             ->middleware('language')->name('language')
             ->where('lang', 'vi|en');

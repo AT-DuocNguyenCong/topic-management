@@ -96,4 +96,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserTopic::class, 'user_id');
     }
+
+    public function usertopics()
+    {
+        return $this->hasMany(UserTopic::class);
+    }
 }

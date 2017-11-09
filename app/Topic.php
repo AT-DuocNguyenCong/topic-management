@@ -70,6 +70,10 @@ class Topic extends Model
         return $this->belongsTo(User::class, 'own_user_id');
     }
 
+    public function usertopics()
+    {
+        return $this->hasMany(UserTopic::class);
+    }
 
     public static function getPendingTopics()
     {

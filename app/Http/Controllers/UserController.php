@@ -27,10 +27,25 @@ class UserController extends Controller
         }
     }
 
+
     public function showMessage($id)
     {
         $messages = Message::where('reciever_id', $id)->orderby('id', 'DESC')->paginate(3);
 
         return view('frontend.messages.index', compact('messages'));
     }
+    
+    public function topicParticipate(Request $request)
+    {
+        $usertopic = new UserTopic($request->all());
+        if ($usertopic->save()) {
+            flash(__('Participate success, Please waiting for ADMIN!'))->success();
+            return redirect()->route('home.index');
+        } else {
+            flash(__('Failure, please try again!'))->error();
+            return redirect()->back();
+        }
+    }
+
+
 }
