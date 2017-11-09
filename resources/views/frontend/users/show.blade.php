@@ -261,7 +261,7 @@
                                             <td>
                                                 <strong>
                                                     <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                    created
+                                                    {{('Date Creation')}}
                                                 </strong>
                                             </td>
                                             <td class="text-primary">
@@ -272,7 +272,7 @@
                                             <td>
                                                 <strong>
                                                     <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                    {{ __('Updated At') }}
+                                                    {{ __('Last Change') }}
                                                 </strong>
                                             </td>
                                             <td class="text-primary">

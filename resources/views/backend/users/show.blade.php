@@ -193,7 +193,7 @@
                                             <td>
                                                 <strong>
                                                     <span class="glyphicon glyphicon-calendar text-primary"></span>
-                                                    {{ __('Last change') }}
+                                                    {{ __('Last Change') }}
                                                 </strong>
                                             </td>
                                             <td class="text-primary">
@@ -224,8 +224,51 @@
             </div>
         </div>
       </section>
+      <section class="content">
+    <div class="container">
+      <div class="row">
+        <div class="box col-xs-12 col-sm-12 col-md-10 toppad cls-tb-user">
+          <div class="box-header">
+            <h3 class="box-title text-center">{{ __('List Topics') }}</h3>
+          </div>
+          <div class="box-body">
+            <table class="table table-bordered table-responsive table-striped">
+                <thead>
+                    <tr align="center">
+                      <th>{{ __('ID') }}</th>
+                      <th>{{ __('Topic Name') }}</th>
+                      <th>{{ __('Field') }}</th>
+                      <th>{{ __('Status') }}</th> 
+                      <th>{{ __('Date joined') }}</th> 
+                      {{-- <th class="text-center">{{ __('Option') }}</th>  --}}
+                    </tr>
+                </thead>
+                <tbody>
+                {{dd($user->usertopics)}}
+                @foreach($user->usertopics as $usertopic)
+                  <tr>
+                    <td>{{$usertopic->id}}</td>
+                    <td>{{$usertopic->name}}</td>
+                    <td>{{$usertopic->topic->name}}</td>
+                    <td>{{$usertopic->status}}</td>
+                    <td>{{$usertopic->updated_at}}</td>
+                    {{-- <td>
+                      <a href="{{ route('user.showBooking', [$user->id, $reservation->id]) }}" class="fa fa-edit"></a>
+                      <a href="" class="fa fa-calendar-times-o"></a>
+                    </td> --}}
+                  </tr> 
+                @endforeach
+              </tbody>
+            </table>
+            {{-- {!! $reservations->links() !!} --}}
+          </div>
+        </div>
+      </div>
+    </div>        
+  </section>
     </div>
     @else
         <h1>{{ __('Nothing to show!') }}</h1>
     @endif
+
 @endsection
