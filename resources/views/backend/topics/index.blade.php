@@ -60,16 +60,16 @@
                       <td>{{ $topic->join_member }}</td>
                       @switch($topic->status)
                       @case(App\Topic::STATUS_FINISH)
-                          @php($status = 'Finish')
+                          @php($status = __('Finish'))
                           @break
                       @case(App\Topic::STATUS_IN_PROGRESS)
-                          @php($status = 'In Progress')
+                          @php($status = __('In Progress'))
                           @break
                       @case(App\Topic::STATUS_PENDING_USER)
-                          @php($status = 'Pending User')
+                          @php($status = __('Pending User'))
                           @break
                       @default()
-                          @php($status = 'Pending Admin')
+                          @php($status = __('Pending Admin'))
                           @break
                       @endswitch
                       <td>{{ $status }}</td>

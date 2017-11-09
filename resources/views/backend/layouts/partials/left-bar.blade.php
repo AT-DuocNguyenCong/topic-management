@@ -12,7 +12,7 @@
     </div>
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
-      <li class="header"> {{ __('Management tools') }} </li>
+      <li class="header text-center"> {{ __('Management tools') }} </li>
       <li class="treeview">
         <a href="#">
           <i class="fa fa-dashboard"></i> <span>{{__('My profile')}}</span>
@@ -59,9 +59,9 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ route('levels.index') }}"><i class="fa fa-circle-o"></i>{{'Level'}}</a></li>
-          <li><a href="{{ route('fields.index') }}"><i class="fa fa-circle-o"></i>{{'Field'}}</a></li>
-          <li><a href="{{ route('academicsrank.index') }}"><i class="fa fa-circle-o"></i>{{'Academic Rank'}}</a></li>
+          <li><a href="{{ route('levels.index') }}"><i class="fa fa-circle-o"></i>{{__('Level')}}</a></li>
+          <li><a href="{{ route('fields.index') }}"><i class="fa fa-circle-o"></i>{{__('Field')}}</a></li>
+          <li><a href="{{ route('academicsrank.index') }}"><i class="fa fa-circle-o"></i>{{__('Academic Rank')}}</a></li>
         </ul>
       </li>
       <li>
@@ -70,6 +70,19 @@
       <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
       <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
       <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-pie-chart"></i>
+          <span>{{__('Languages')}}</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ route('language', ['lang' => 'en']) }}"><i class="fa fa-circle-o text-red"></i>{{__('English')}}</a></li>
+          <li><a href="{{ route('language', ['lang' => 'vi']) }}"><i class="fa fa-circle-o text-aqua"></i>{{__('VietNamese')}}</a></li>
+        </ul>
+      </li>
     </ul>
   </section>
   <!-- /.sidebar -->

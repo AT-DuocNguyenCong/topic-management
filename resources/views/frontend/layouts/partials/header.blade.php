@@ -10,7 +10,7 @@
       </li>
       <li class="cls-link">
         <a href="{{ route('language', ['lang' => 'vi']) }}">
-          {{ __('Tiếng Việt') }}
+          {{ __('VietNamese') }}
         </a>
       </li>
     </ul>

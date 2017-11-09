@@ -87,7 +87,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-primary">Profile</a>
+                  <a href="{{route('user.show', Auth::user()->id)}}" class="btn btn-primary">{{__('Profile') }}</a>
                 </div>
                 <form action="{{ route('logout') }}" class="pull-right" method="POST">
                   {{csrf_field()}}

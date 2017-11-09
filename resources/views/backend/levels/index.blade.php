@@ -43,7 +43,7 @@
                   <tr align="center">
                     <th>{{ __('ID') }}</th>
                     <th>{{ __('Name') }}</th>
-                    <th>{{ __('Creation Date') }}</th>
+                    <th>{{ __('Date Creation') }}</th>
                     <th>{{ __('Last Change') }}</th>
                     <th class="text-center">{{ __('Option') }}</th>
                   </tr>
