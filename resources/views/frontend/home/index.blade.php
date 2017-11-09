@@ -10,11 +10,11 @@
             <p>The University of Danang, founded in 1994, is one of three regional universities in Vietnam, based in Da Nang City. Da Nang University is currently a multi-disciplinary university, one of 18 major national universities in Vietnam.</p>
           </div>
         </div>
+        @include('frontend.layouts.partials.search')
         <div class="row">
           @if($topics[0] != null)
             <div class="col-md-7 animate-box">
-              {{-- {{dd($topics[0])}} --}}
-              <a href="{{ route('user.topics.show', $topics[0]->id) }}">
+              <a href="{{ route('user.topics.show', $topics[0]->id) }}" >
               <div class="fh5co-cover cls-effect-2" style="background-image: url({{ $topics[0]->img != null ? asset($topics[0]->img) : asset('frontend/images/work-1.jpg') }});">
                 <div class="desc">
                   <p>{{ $topics[0]->name }}</p>

@@ -205,3 +205,4 @@
         $('#logout-form').submit();
     });
 }());
+

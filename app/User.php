@@ -2,7 +2,6 @@
 
 namespace App;
 
-
 use App\AcademicRank;
 use App\UserAcademicsRank;
 use App\Topic;
@@ -90,6 +89,11 @@ class User extends Authenticatable
   
     public function topics()
     {
-        return $this->hasMany(Topic::class);
+        return $this->hasMany(Topic::class, 'own_user_id');
+    }
+
+    public function usertopics()
+    {
+        return $this->hasMany(UserTopic::class, 'user_id');
     }
 }

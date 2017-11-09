@@ -65,7 +65,7 @@
         </ul>
       </li>
       <li>
-        <a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>{{ __('Message') }}</span></a></li>
+        <a href="{{ route('handlerequest.index') }}"><i class="fa fa-book"></i> <span>{{ __('Request join') }}</span></a></li>
       <li class="header">LABELS</li>
       <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
       <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
