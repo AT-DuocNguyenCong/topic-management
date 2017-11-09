@@ -941,6 +941,9 @@ a {
     content: "";
     display: block;
 }
+.cls-search-topic {
+  margin-bottom: 4%;
+}
 .disabled {
    pointer-events: none;
    cursor: default;

@@ -11,7 +11,8 @@ class UserTopic extends Model
     const STATUS_PROGRESS = 1;
 
     protected $table = 'user_topic';
-	/**
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

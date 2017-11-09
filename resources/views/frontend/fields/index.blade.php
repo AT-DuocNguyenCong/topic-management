@@ -8,6 +8,7 @@
           <h3>{{ __('SCIENCE TOPICS') }}</h3>
         </div>
       </div>
+      @include('frontend.layouts.partials.search')
       @foreach($fields as $field)
         <hr/>
         <p>{{ $field->name }}</p>  
@@ -24,21 +25,34 @@
 
           <div class="col-md-5">
             <div class="fh5co-cover">
-              @foreach($field->topicLimit as $topic)
+              @if(isset($field->topics))
+                @foreach($field->topics as $topic)
                 <div class="fh5co-cover-hero animate-box">
-                  <a href="{{ route('user.topics.show', $topic->id ) }}">
-                    <div class="fh5co-cover-thumb" style="background-image: url({{ $topic->img != null ? asset($topic->img) : asset('frontend/images/work-1.jpg') }}"></div></a>
-                  <div class="desc-thumb">
-                    <p>{{ $topic->name }}</p>
-                    <span> {{ $topic->user->full_name }}</span>
+                    <a href="{{ route('user.topics.show', $topic->id ) }}">
+                      <div class="fh5co-cover-thumb" style="background-image: url({{ $topic->img != null ? asset($topic->img) : asset('frontend/images/work-1.jpg') }}"></div></a>
+                    <div class="desc-thumb">
+                      <p>{{ $topic->name }}</p>
+                      <span> {{ $topic->user->full_name }}</span>
+                    </div>
                   </div>
-                </div>
-              @endforeach
+                @endforeach
+              @else
+                @foreach($field->topicLimit as $topic)
+                  <div class="fh5co-cover-hero animate-box">
+                    <a href="{{ route('user.topics.show', $topic->id ) }}">
+                      <div class="fh5co-cover-thumb" style="background-image: url({{ $topic->img != null ? asset($topic->img) : asset('frontend/images/work-1.jpg') }}"></div></a>
+                    <div class="desc-thumb">
+                      <p>{{ $topic->name }}</p>
+                      <span> {{ $topic->user->full_name }}</span>
+                    </div>
+                  </div>
+                @endforeach
+              @endif
             </div>
           </div>
         </div>
       @endforeach
-    <div class="text-center">{{ $fields->render() }}</div>
+    <div class="text-center">{{ $fields->links() }}</div>
 
       <p class="pull-right" style="font-size: 30px"><a href="">{{ __('See more') }}</a></p>
     </div>

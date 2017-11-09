@@ -20,9 +20,7 @@
               data-confirm="{{ __('Are you sure you want to delete?') }}">Remove
             </button>
         </div>
-      @endforeach
-      <div class="pull-right cls-mr-13">
-        {!! $messages->render() !!}
-      </div>
+      </section>
+    </div>
   </div>
 @endsection

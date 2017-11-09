@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title', __('404'))
+@section('title', __('404 - Page not found'))
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->

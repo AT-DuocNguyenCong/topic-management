@@ -210,6 +210,7 @@
                                                 <p class="text-danger"><small>{{ $errors->first('major') }}</small></p>
                                             </td>
                                         </tr>
+
                                         <tr>
                                             <td>
                                                 <strong>
@@ -253,6 +254,46 @@
                                         <tr>
                                           <td colspan="2">
                                             <div class="alert cls-alert-info">
+                                              <strong>{{ __('My Topics') }}</strong>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                        @foreach($user->topics as $topic)
+                                        <tr>
+                                            <td>
+                                                <strong>
+                                                    <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                                    {{__('Topics name')}}
+                                                </strong>
+                                            </td>
+                                            <td class="text-primary">
+                                                <a href="{{route('user.topics.show', $topic)}}">{{ $topic->name }}</a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                        <tr>
+                                          <td colspan="2">
+                                            <div class="alert cls-alert-info">
+                                              <strong>{{ __('Topics Involved') }}</strong>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                        @foreach($user->usertopics as $usertopic)            
+                                        <tr>
+                                            <td>
+                                                <strong>
+                                                    <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                                    {{__('Topics name')}}
+                                                </strong>
+                                            </td>
+                                            <td class="text-primary">
+                                                <a href="{{route('user.topics.show', $usertopic->topic )}}">{{$usertopic->topic->name}}</a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                        <tr>
+                                          <td colspan="2">
+                                            <div class="alert cls-alert-info">
                                               <strong>{{ __('Orther information') }}</strong>
                                             </div>
                                           </td>
@@ -261,7 +302,7 @@
                                             <td>
                                                 <strong>
                                                     <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                    created
+                                                    {{_('DateCreation')}}
                                                 </strong>
                                             </td>
                                             <td class="text-primary">

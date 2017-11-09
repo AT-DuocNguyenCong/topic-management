@@ -65,7 +65,7 @@
                        </strong>
                      </td>
                      <td>
-                      {{ $topic->user->username }}
+                      {{ $topic->user->full_name }}
                    </tr>
                    <tr>
                      <td>
