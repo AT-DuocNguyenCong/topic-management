@@ -124,7 +124,7 @@ class UserController extends Controller
         } else {
             $user->update(['is_admin' => User::ROLE_ADMIN]);
         }
-        flash(__('Change role successful for username: ' . $user->username))->success();
+        flash(__('Change role successful'))->success();
         return redirect()->route('user.index');
     }
 

@@ -7,7 +7,7 @@
         <div class="row animate-box">
           <div class="col-md-8 col-md-offset-2 text-center heading-section">
             <h3>{{ __('Welcome to SCIENCE TOPICS MANAGEMENT') }}</h3>
-            <p>The University of Danang, founded in 1994, is one of three regional universities in Vietnam, based in Da Nang City. Da Nang University is currently a multi-disciplinary university, one of 18 major national universities in Vietnam.</p>
+            <p>{{ __('The University of Danang, founded in 1994, is one of three regional universities in Vietnam, based in Da Nang City. Da Nang University is currently a multi-disciplinary university, one of 18 major national universities in Vietnam.') }}</p>
           </div>
         </div>
         <div class="row">
@@ -50,9 +50,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-            <h3>Gallery</h3>
-            <p>Danang University of Technology - University of Danang, which is one of the Technical Universities partners, has joined Higher Engineering Education Alliance Program (HEEAP)
-Cadence Makes Multimillion Dollar In-Kind Donation to HEEAP to Help Prepare Engineering Students in Vietnam</p>
+            <h3>{{ __('Gallery') }}</h3>
+            <p>{{ __('Danang University of Technology - University of Danang, which is one of the Technical Universities partners, has joined Higher Engineering Education Alliance Program (HEEAP) Cadence Makes Multimillion Dollar In-Kind Donation to HEEAP to Help Prepare Engineering Students in Vietnam') }}</p>
           </div>
         </div>
         <div class="owl-carousel owl-carousel2">
@@ -71,8 +70,8 @@ Cadence Makes Multimillion Dollar In-Kind Donation to HEEAP to Help Prepare Engi
             <div class="fh5co-inner">
               <i class="icon-shield"></i>
               <div class="holder-section">
-                <h3>About Us</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                <h3>{{ __('About Us') }}</h3>
+                <p>{{ __('Danang University of Technology - University of Danang, which is one of the Technical Universities partners') }}</p>
               </div>
             </div>
           </div>
@@ -80,8 +79,8 @@ Cadence Makes Multimillion Dollar In-Kind Donation to HEEAP to Help Prepare Engi
             <div class="fh5co-inner">
               <i class="icon-phone"></i>
               <div class="holder-section">
-                <h3>Contact</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                <h3>{{ __('Contact') }}</h3>
+                <p>Email: dev.team@gmail.com Phone: 0987655442</p>
               </div>
             </div>
           </div>
@@ -89,8 +88,8 @@ Cadence Makes Multimillion Dollar In-Kind Donation to HEEAP to Help Prepare Engi
             <div class="fh5co-inner">
               <i class="icon-shield"></i>
               <div class="holder-section">
-                <h3>About Danang University</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                <h3>{{ __('About Danang University') }}</h3>
+                <p>{{ __('Danang University of Technology - University of Danang, which is one of the Technical Universities partners') }}</p>
               </div>
             </div>
           </div>

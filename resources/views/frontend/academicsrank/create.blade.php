@@ -21,12 +21,12 @@
               <table class="table cls-rank-style">
                 <thead>
                   <th>{{ __('Academic Rank Name')}}</th>
-                  <th>{{ __('Date Creation')}}</th>
+                  <th>{{ __('Graduation Date')}}</th>
                 </thead>
                 <tbody>
                   @foreach($AcademicsrankUser as $value)
                   <tr>
-                    <td><a href="" class="btn btn-primary">{{$value->academicsrank->name}}</a></td>
+                    <td><a href="" class="btn btn-primary">{{ __($value->academicsrank->name) }}</a></td>
                     <td>{{$value->academicsrank->created_at}}</td>
                   </tr>
                   @endforeach
@@ -52,7 +52,7 @@
                     <small class="text-danger">{{ $errors->first('academic_rank_id') }}</small>
                   </div>
                   <div class="col-md-6 nopadding-r form-group">
-                    <label for="expense">{{ __('Date Gradution') }}</label>
+                    <label for="expense">{{ __('Graduation Date') }}</label>
                     <input type="date" class="form-control" name="graduate" id="graduate">
                     <small class="text-danger">{{ $errors->first('graduate') }}</small>
                   </div>
@@ -74,24 +74,7 @@
     </section><section class="col-md-5">
       <div class="alert cls-alert-info">
         <div class="text-primary">
-          The posible visualizar una hoja de ruta de la siguiente manera:
-          <ul>
-            <li>
-              1. Seleccione el tema
-            </li>
-            <li>
-              2. Haz un plan de implementación
-            </li>
-            <li>
-              4. Recopilación de datos, información de procesamiento
-            </li>
-            <li>
-              5. Escribe el informe de investigación
-            </li>
-          </ul>
-      Estimator el problema, construya la hypotesis
-      Esta secuencia también es relativa. Puede haber temas que provienen de nuevas ideas, luego nuevos materiales, implementados. You can find out more details, please contact us for more details, please contact us for more details on related matters.
-        </div>
+         {{ __("Some acronyms in Vietnamese from English. Master's degrees are often abbreviated as M.Sc or M.S. from the word Master of Science. Ph.D. degrees are often abbreviated as Ph.D; PhD; D.Phil or Dr.Phil from the word Doctor of Philosophy. Ph.D. degrees are often abbreviated as Sc.D; D.Sc; S.D. or Dr.Sc from Doctor of Science. The title of medical doctor is often abbreviated M.D. from the word Doctor of Medicine; Medical Doctor or Medicinae Doctor. Associate professors are often abbreviated as Assoc. Prof. from Asscociate Professor; not written as A. Prof. This can be confused with the assistant professor or assistant professor from the Assistant Professor. Assistant professor or assistant professor should be Assist. Prof. Professors are often referred to as prof. from the word Professor.") }}
       </div>
     </section>
   </div>
