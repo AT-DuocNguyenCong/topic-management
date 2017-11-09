@@ -1,6 +1,6 @@
 @extends('frontend.layouts.main')
 
-@section('title', __('Profile | ' . $user->full_name))
+@section('title', __('Profile | :name',['name'=>$user->full_name]))
 
 @section('content')
   <!-- Content Wrapper. Contains page content -->
@@ -87,8 +87,7 @@
                                         <tr>
                                           <td colspan="2">
                                             <div class="alert cls-alert-info">
-                                              <strong>{{ __('User information
-') }}</strong>
+                                              <strong>{{ __('User information') }}</strong>
                                             </div>
                                           </td>
                                         </tr>
@@ -244,7 +243,7 @@
                                             <td>
                                               <ul>
                                                 @foreach($user->userAcademicsrank as $value)
-                                                    <li style="margin-left: -9%;">{{ '- '.$value->academicsrank->name}}</li>
+                                                    <li style="margin-left: -9%;">{{ '- ' }} {{ __($value->academicsrank->name) }}</li>
                                                 @endforeach
                                                 <li><a style="margin-top: 10px" class="btn btn-primary" href="{{ route('profile.academicsrank.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>   
                                               </ul>
@@ -253,7 +252,7 @@
                                         <tr>
                                           <td colspan="2">
                                             <div class="alert cls-alert-info">
-                                              <strong>{{ __('My Topics') }}</strong>
+                                              <strong>{{ __('My Topic') }}</strong>
                                             </div>
                                           </td>
                                         </tr>
@@ -261,7 +260,6 @@
                                           <td>
                                             <strong>
                                               <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                              {{__('Topics name')}}
                                             </strong>
                                           </td>
                                         </tr>
@@ -285,7 +283,6 @@
                                           <td>
                                             <strong>
                                               <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                              {{__('Topics name')}}
                                             </strong>
                                           </td>
                                         </tr>
@@ -308,7 +305,7 @@
                                             <td>
                                                 <strong>
                                                     <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                    {{_('DateCreation')}}
+                                                    {{__('DateCreation')}}
                                                 </strong>
                                             </td>
                                             <td class="text-primary">
@@ -319,7 +316,7 @@
                                             <td>
                                                 <strong>
                                                     <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                                    {{ __('Updated At') }}
+                                                    {{ __('LastChanged') }}
                                                 </strong>
                                             </td>
                                             <td class="text-primary">
