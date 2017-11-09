@@ -75,6 +75,11 @@ class Topic extends Model
         return $this->hasMany(UserTopic::class);
     }
 
+    public function usertopicsProgress()
+    {
+        return $this->hasMany(UserTopic::class)->where('status', UserTopic::STATUS_PROGRESS);
+    }
+
     public static function getPendingTopics()
     {
         $topics = Topic::where('status', Topic::STATUS_PENDING_ADMIN)->get();

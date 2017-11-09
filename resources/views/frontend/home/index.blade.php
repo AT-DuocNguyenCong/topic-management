@@ -10,7 +10,6 @@
             <p>The University of Danang, founded in 1994, is one of three regional universities in Vietnam, based in Da Nang City. Da Nang University is currently a multi-disciplinary university, one of 18 major national universities in Vietnam.</p>
           </div>
         </div>
-        @include('frontend.layouts.partials.search')
         <div class="row">
           @if($topics[0] != null)
             <div class="col-md-7 animate-box">

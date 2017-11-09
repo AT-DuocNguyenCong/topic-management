@@ -1,9 +1,9 @@
-<div class="cls-search-topic">
-  <div class="col-md-12">
+<div class="cls-search-topic" id="js-search-form" hidden="">
+  <div class="" style="width: 500px;">
     <form action="{{route('search.fields')}}" class="container-search" method="GET">
-      <div class="col-md-4">
-        <select name='fieldname' class="form-control">
-          <option value="">{{('Please choose field you want to search')}}</option>
+      <div class="col-md-4 nopadding">
+        <select name='fieldname' class="form-control cls-search-field">
+          <option value="">{{('Field')}}</option>
           @php
             $fields = getField();
           @endphp
@@ -13,11 +13,11 @@
           @endforeach
         </select>
       </div>
-    <div class="col-md-4">
-      <input type="text" name="topicname" class="form-control" placeholder="Keyword" value="{{request('topicname')}}">
+    <div class="col-md-6 nopadding">
+      <input type="text" name="topicname" class="form-control cls-search-key" placeholder="Keyword" value="{{request('topicname')}}">
     </div>
-    <div class="col-md-2">
-      <button type="submit" class="btn btn-primary form-control">{{__('Search topic')}}</button>
+    <div class="col-md-2 nopadding">
+      <button type="submit" class="btn btn-primary form-control cls-search-button"><i class="glyphicon glyphicon-search"></i></button>
     </div>
     </form>
   </div>

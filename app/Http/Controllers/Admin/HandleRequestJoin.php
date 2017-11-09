@@ -62,7 +62,24 @@ EOT;
      */
     public function unapprove($id)
     {	
+        $userTopic = UserTopic::findOrFail($id);
 
+        $message = new Message();
+        $message->sender_id = Auth::user()->id;
+        $message->reciever_id = $userTopic->user->id;
+        $message->status = Message::STATUS_PENDING;
+        $link = $userTopic->topic->name;
+        $message->content = <<<EOT
+            <p> Sorry, you are not eligible to participate in <strong>$link</strong>, please select another topic!</p>
+EOT;
+
+        if($userTopic->delete() && $message->save()) {
+            flash(__('Update status success!'))->success();
+            return redirect()->route('handlerequest.index');
+        } else {
+            flash(__('failure'))->error();
+            return redirect()->back();
+        }
     }
 
     /**

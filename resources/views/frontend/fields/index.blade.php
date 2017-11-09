@@ -8,7 +8,6 @@
           <h3>{{ __('SCIENCE TOPICS') }}</h3>
         </div>
       </div>
-      @include('frontend.layouts.partials.search')
       @foreach($fields as $field)
         <hr/>
         <p>{{ $field->name }}</p>  
