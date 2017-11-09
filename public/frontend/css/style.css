@@ -941,3 +941,7 @@ a {
     content: "";
     display: block;
 }
+.disabled {
+   pointer-events: none;
+   cursor: default;
+}

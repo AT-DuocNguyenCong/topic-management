@@ -142,3 +142,8 @@
 #top-header .th-text .th-item .social-icons i {
     padding-right: 20px;
 }
+.cls-btn {
+  width: 100px;
+  margin-bottom: 5px;
+  margin-left: -15px;
+}
