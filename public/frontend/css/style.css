@@ -942,9 +942,33 @@ a {
     display: block;
 }
 .cls-search-topic {
-  margin-bottom: 4%;
+  /*margin-bottom: 4%;*/
+  position: fixed;
+  bottom: 0px;
+  right: 70px;
+  z-index: 9999;
+
 }
 .disabled {
-   pointer-events: none;
-   cursor: default;
+    pointer-events: none;
+    cursor: default;
 }
+.cls-search-field {
+    border-radius: 2px 0px 0px 0px;
+}
+.cls-search-key {
+    border-left: 0px;
+    border-radius: 0px;
+}
+.cls-search-button {
+    border-radius: 0px 2px 0px 0px;
+    padding-right: 5px; 
+}
+.cls-button-show-search {
+    position: fixed;
+    z-index: 9999;
+    right: 0;
+    bottom: 0px;
+    width: 50px;
+}
+

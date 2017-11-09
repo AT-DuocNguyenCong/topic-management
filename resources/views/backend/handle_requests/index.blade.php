@@ -55,9 +55,9 @@
                       </td>
                       <td><a href="{{ route('topics.edit', $userTopic->topic->id) }}">{{ $userTopic->topic->name }}</a></td>
                       <td>{{ $userTopic->topic->max_member }}</td>
-                      <td><strong>{{ __(':member member', ['member' => $userTopic->topic->usertopics->count()]) }}</strong>
+                      <td><strong>{{ __(':member member', ['member' => $userTopic->topic->usertopicsProgress->count()]) }}</strong>
                         <ol>
-                          @foreach($userTopic->topic->usertopics as $key)
+                          @foreach($userTopic->topic->usertopicsProgress as $key)
                             <li><a href="{{ route('user.show', $key->user->id) }}">{{ $key->user->full_name }}</a></li>
                           @endforeach
                         </ol>
@@ -77,15 +77,7 @@
                             <a href="{{ route('request.approve', $userTopic->id) }}"  class="btn btn-success cls-btn" >{{ 'Approve' }}</a>
                           </li>
                           <li>
-                            <form method="POST" action="{{ ''}}" class="">
-                            {!! csrf_field() !!}
-                            {{ method_field('DELETE') }}
-                              <button type="submit" 
-                              class="btn btn-danger btn-delete-item cls-btn"
-                              data-title="{{ __('Confirm deletion!') }}"
-                              data-confirm="{{ __('Are you sure you want to delete?') }}">{{ __('Unapprove') }}
-                              </button>
-                          </form> 
+                            <a href="{{ route('request.unapprove', $userTopic->id) }}"  class="btn btn-danger cls-btn" >{{ 'Unapprove' }}</a>
                           </li>
                         </ul>
                       </td>
