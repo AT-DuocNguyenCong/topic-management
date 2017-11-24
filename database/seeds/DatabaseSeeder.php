@@ -1,5 +1,6 @@
 <?php
 
+use App\AcademicRank;
 use App\Field;
 use App\Level;
 use App\Topic;
@@ -25,6 +26,6 @@ class DatabaseSeeder extends Seeder
         factory(Field::class, 5)->create();
         factory(Level::class, 5)->create();
         factory(Topic::class, 20)->create();
-
+        factory(AcademicRank::class, 5)->create();
     }
 }

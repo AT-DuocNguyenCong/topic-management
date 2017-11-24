@@ -25,7 +25,8 @@ class CreateAcademicRankRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:5|max:50',
-            'description' => 'required|string'
+            'description' => 'required|string',
+            'type' => 'required|integer'
         ];
     }
 }

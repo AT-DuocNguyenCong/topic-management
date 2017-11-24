@@ -974,3 +974,6 @@ a {
 .cls-height-44px {
     height: 44px !important;
 }
+.cls-td label {
+  margin-top: 10px;
+}

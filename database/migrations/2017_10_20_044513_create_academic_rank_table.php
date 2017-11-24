@@ -16,6 +16,7 @@ class CreateAcademicRankTable extends Migration
         Schema::create('academic_rank', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->tinyInteger('type');
             $table->text('description');
             $table->timestamps();
         });

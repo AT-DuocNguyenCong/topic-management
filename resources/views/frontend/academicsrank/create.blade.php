@@ -20,18 +20,37 @@
             </div>
               <table class="table cls-rank-style">
                 <thead>
-                  <th>{{ __('Academic Rank Name')}}</th>
-                  <th>{{ __('Graduation Date')}}</th>
+                  <th class="col-md-3">{{ __('Degree Name')}}</th>
+                  <th class="col-md-3">{{ __('Graduation Date')}}</th>
+                </thead>
+                <tbody>
+                  @foreach($AcademicsrankUser as $userDegree)
+                  @if($userDegree->academicsrank->type == App\AcademicRank::DEGREE)
+                  <tr>
+                    <td><a class="btn btn-primary">{{ __($userDegree->academicsrank->name) }}</a></td>
+                    <td class="cls-td"><label>{{$userDegree->graduate}}</label></td>
+                  </tr>
+                  @endif
+                  @endforeach
+                </tbody>
+              </table>
+              <div></div>
+              <table class="table cls-rank-style">
+                <thead>
+                  <th class="col-md-3">{{ __('Academic Rank Name')}}</th>
+                  <th class="col-md-3">{{ __('Graduation Date')}}</th>
                 </thead>
                 <tbody>
                   @foreach($AcademicsrankUser as $value)
+                  @if($value->academicsrank->type == App\AcademicRank::ACADEMICRANK)
                   <tr>
-                    <td><a href="" class="btn btn-primary">{{ __($value->academicsrank->name) }}</a></td>
-                    <td>{{$value->academicsrank->created_at}}</td>
+                    <td><a class="btn btn-primary">{{ __($value->academicsrank->name) }}</a></td>
+                    <td class="cls-td"><label>{{$value->graduate}}</label></td>
                   </tr>
+                  @endif
                   @endforeach
                 </tbody>
-              </table>              
+              </table>             
           </div>
           <div class="box box-primary">
             <div class="box-header with-border">

@@ -45,6 +45,14 @@ $factory->define(App\Level::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(App\AcademicRank::class, function (Faker $faker) {
+    return [
+        'name' => $faker->word,
+        'type' => $faker->numberBetween($min = 1, $max = 2),
+        'description' => $faker->text,
+    ];
+});
+
 $factory->define(App\Topic::class, function (Faker $faker) {
     return [
         'name' => $faker->unique()->sentence($nbWords = 6, $variableNbWords = true),

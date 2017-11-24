@@ -32,8 +32,7 @@
                                         <tr>
                                           <td colspan="2">
                                             <div class="alert cls-alert-info">
-                                              <strong>{{ __('Login information
-') }}</strong>
+                                              <strong>{{ __('Login information') }}</strong>
                                             </div>
                                           </td>
                                         </tr>
@@ -87,8 +86,7 @@
                                         <tr>
                                           <td colspan="2">
                                             <div class="alert cls-alert-info">
-                                              <strong>{{ __('User information
-') }}</strong>
+                                              <strong>{{ __('User information') }}</strong>
                                             </div>
                                           </td>
                                         </tr>
@@ -265,7 +263,7 @@
                                         <tr>
                                             <td>
                                                <button type="reset" class="btn btn-warning btn-xs">
-                                                {{ __('Reset')}}    
+                                                {{ __('Reset') }}    
                                                </button>
                                             </td>
                                             <td>
