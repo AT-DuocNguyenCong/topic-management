@@ -977,3 +977,8 @@ a {
 .cls-td label {
   margin-top: 10px;
 }
+.cls-btn {
+  width: 100px;
+  margin-bottom: 5px;
+  margin-left: -15px;
+}

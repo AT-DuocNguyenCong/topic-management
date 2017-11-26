@@ -66,4 +66,36 @@ class TopicController extends Controller
     {
         return view('frontend.topics.show', compact('topic'));
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $topic = Topic::findOrFail($id);
+        return view('frontend.topics.edit', compact('topic'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        // dd($request->all());
+        $topic = Topic::findOrFail($id);
+        $result = $topic->update($request->all());
+        if ($result) {
+            flash(__('Update Success!'))->success();
+            return redirect()->route('user.topics.show', $topic->id);
+        } else {
+            flash(__('Update Fail!'))->fail();
+            return redirect()->back();
+        }
+    }
 }

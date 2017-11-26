@@ -18,7 +18,7 @@ class HandleRequestJoin extends Controller
     public function index()
     {   
         $userTopics = UserTopic::with('topic')->with('user')->where('status', UserTopic::STATUS_PENDING)->paginate(10);
-        return view('backend.handle_requests.index', compact('userTopics'));
+        return view('frontend.handle_requests.index', compact('userTopics'));
     }
 
     /**
