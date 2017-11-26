@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class AcademicRank extends Model
 {
+
+    const DEGREE = 1;
+    const ACADEMICRANK =2;
+
 	/**
      * Declare table
      *
@@ -20,7 +24,7 @@ class AcademicRank extends Model
      * @var array $fillable
      */
     protected $fillable = [
-        'name', 'description'
+        'name', 'description', 'type'
     ];
 
     public function users()
@@ -36,5 +40,17 @@ class AcademicRank extends Model
     public function userAcademicsrank()
     {
         return $this->hasMany(UserAcademicsRank::class);
+    }
+
+    public function getTypeLabelAttribute()
+    {   
+        switch ($this->attributes['type']) {
+            case self::ACADEMICRANK:
+                return __('AcademicRank');
+                break;
+            case self::DEGREE:
+                return __('Degree');
+                break;
+        }
     }
 }

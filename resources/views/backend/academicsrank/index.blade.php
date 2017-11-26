@@ -41,18 +41,20 @@
               <table id="table-contain" class="table table-bordered table-responsive table-striped">
                 <thead>
                   <tr align="center">
-                    <th>{{ __('ID') }}</th>
-                    <th>{{ __('Name') }}</th>
+                    <th class="col-md-0">{{ __('ID') }}</th>
+                    <th class="col-md-1">{{ __('Name') }}</th>
                     <th>{{ __('Description') }}</th>
+                    <th>{{ __('Type') }}</th>
                     <th class="text-center">{{ __('Option') }}</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach ($academicsrank as $academicrank)
                     <tr>
-                      <td>{{ $academicrank->id }}</td>
+                      <td ">{{ $academicrank->id }}</td>
                       <td>{{ $academicrank->name }}</td>
                       <td>{{ contentLimit($academicrank->description) }}</td>
+                      <td>{{ $academicrank->type_label}}</td>
                       <td align="center">
                         <div class="btn-option text-center">
                           <a href="{{ route('academicsrank.edit', $academicrank->id) }}"  class="btn btn-default fa fa-pencil-square-o pull-left" >

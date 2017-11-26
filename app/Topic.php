@@ -85,4 +85,22 @@ class Topic extends Model
         $topics = Topic::where('status', Topic::STATUS_PENDING_ADMIN)->get();
         return $topics;
     }
+
+        public function getStatusLabelAttribute()
+    {   
+        switch ($this->attributes['status']) {
+            case self::STATUS_FINISH:
+                return __('Finish');
+                break;
+            case self::STATUS_IN_PROGRESS:
+                return __('Progress');
+                break;
+            case self::STATUS_PENDING_ADMIN:
+                return __('Pending Admin');
+                break;
+            case self::STATUS_PENDING_USER:
+                return __('Pending User');
+                break;
+        }
+    }
 }

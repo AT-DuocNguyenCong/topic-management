@@ -27,6 +27,16 @@
                   <input type="text" class="form-control{{ $errors->has('name') ? ' has-error' : '' }}" name= "name" id="name" placeholder="{{ __('Enter academic rank name') }}" value="{{ old('name') }}">
                   <small class="text-danger">{{ $errors->first('name') }}</small>
                 </div>
+                {{-- <div class="form-group">
+                  <label for="name">{{ __('Type') }}</label>
+                  <select name='type' class="form-control {{$errors->has('type') ? 'has-error' : '' }}">
+                    <option value=""></option>
+                    @foreach($types as $type)
+                      <option value="{{$type->type}}">{{$type->type_label}}</option>
+                    @endforeach
+                  </select>
+                  <small class="text-danger">{{ $errors->first('type') }}</small>
+                </div> --}}
                 <div class="form-group">
                   <label for="name">{{ __('Description') }}</label>
                   <textarea class="form-control{{ $errors->has('description') ? ' has-error' : '' }}" name= "description" id="description" placeholder="{{ __('Enter Description') }}">{{ old('description') }}</textarea>
