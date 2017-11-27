@@ -17,17 +17,18 @@
         <div class="clr-ml-15per clr-width-70per">
           <div>
             <div class="user-head text-center">
-              <h1>{{__("Your degree information")}}</h1>
+              <h1>{{__('Your academic rank information')}}</h1>
             </div>
               <table class="table cls-rank-style">
                 <thead>
-                  <th class="col-md-3">{{ __('Degree')}}</th>
+                  <th class="col-md-3">{{ __('Academic Rank')}}</th>
                   <th class="col-md-3">{{ __('Graduation Date')}}</th>
                   <th class="col-md-2">{{ __('Action')}}</th>
                 </thead>
                 <tbody>
                   @foreach($AcademicsrankUser as $userDegree)
-                  @if ($userDegree->academic_rank_id <= 3)
+                  {{-- {{dd($userDegree)}} --}}
+                  @if ($userDegree->academic_rank_id > 3)
                     <tr>
                       <td><a class="btn btn-primary">{{ __($userDegree->academicsrank->name) }}</a></td>
                       <td class="cls-td"><label>{{$userDegree->graduate}}</label></td>
@@ -60,11 +61,11 @@
               <div class="box-body">
                 <div class="form-group">
                   <div class="col-md-6 nopadding">
-                    <label for="expense">{{ __('Degree') }}</label>
+                    <label for="expense">{{ __('Academics Rank') }}</label>
                     <select class="form-control" name="academic_rank_id">
                       <option></option>
                       @foreach($academicsrank as $academicrank)
-                      @if ($academicrank->id <= 3)
+                      @if ($academicrank->id > 3)
                           <option value="{{$academicrank->id}}">{{__($academicrank->name)}}</option>
                       @endif
                       @endforeach

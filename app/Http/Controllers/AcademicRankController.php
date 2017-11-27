@@ -26,6 +26,20 @@ class AcademicRankController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function createhv($id)
+    {
+        $academicsrank = AcademicRank::whereNotIn('id', function($query) use ($id) {
+            $query->select('academic_rank_id')->from('user_academic_rank')->where('user_id', $id);
+        })->get();
+        $AcademicsrankUser = User::findOrFail($id)->userAcademicsrank;
+        return view('frontend.academicsrank.createhv', compact('AcademicsrankUser', 'academicsrank'));
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -47,5 +61,24 @@ class AcademicRankController extends Controller
             return redirect()->back()->withInput();
         }
         
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param                            $id id of user
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        $tmp = UserAcademicsRank::findOrFail($id)->delete();
+        if ($tmp) {
+            flash(__('Delete Field Success!'))->success();
+        } else {
+            flash(__('Delete Field Fail!'))->fail();
+        }
+        return redirect()->back();
     }
 }

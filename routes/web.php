@@ -36,6 +36,8 @@ Route::group(['middleware' => 'language'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('/profile', 'UserController');
     Route::resource('profile.academicsrank', 'AcademicRankController', ['only' => ['create', 'store']]);
+    Route::get('/users/{id}/createhv', 'AcademicRankController@createhv')->name('hv.create');
+    Route::delete('/users/delete/academicsrank/{id}', 'AcademicRankController@delete')->name('academicsrank.delete');
     Route::resource('/usertopics', 'TopicController');
     Route::get('/messages/{id}/show', 'UserController@showMessage')->name('messages.show');
     Route::get('/about', function() {
@@ -49,3 +51,6 @@ Route::get('/language/{lang}', 'LanguageController@show')
             ->where('lang', 'vi|en');
 
 Auth::routes();
+
+Route::get('getDistrict/{matp}', 'DistrictController@getDistrict');
+Route::get('getTown/{maqh}', 'DistrictController@getTown');

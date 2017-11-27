@@ -25,4 +25,44 @@ $(document).ready(function() {
         }
         index++;
     });
+
+    $('#tinhthanh').change(function(event) {
+        var matp = this.value;
+        $.ajax({
+            url: '../getDistrict/'+matp,
+            type: 'get',
+            dataType: 'text',
+            success: function(result) {
+                $('#quanhuyen option[value!=""]').remove();
+                $('#xaphuong option[value!=""]').remove();
+                let district = JSON.parse(result);
+                $.each(district.districts, function(i, $value) {
+                    let $option = $("<option></option>");
+                    $option.html($value.name);
+                    $option.attr('value', $value.maqh);
+                    $('#quanhuyen').append($option);
+                });
+            }
+        });
+        
+    });
+
+    $('#quanhuyen').change(function(event) {
+        var maqh = this.value;
+        $.ajax({    
+            url: '../getTown/'+maqh,
+            type: 'get',
+            dataType: 'text',
+            success: function(result) {
+                $('#xaphuong option[value!=""]').remove();
+                let town = JSON.parse(result);
+                $.each(town.towns, function(i, $value) {
+                    let $option = $("<option></option>");
+                    $option.html($value.name);
+                    $option.attr('value', $value.xaid);
+                    $('#xaphuong').append($option);
+                });
+            }
+        });
+    });
 });
