@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Field;
 use App\Message;
+use App\Province;
+use App\District;
+use App\Town;
 use App\User;
-use App\UserTopic;
 use App\UserAcademicsRank;
+use App\UserTopic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -19,6 +24,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $city = Province::get();
+        // $field = Field::get();
+        // $districs = DB::table('devvn_quanhuyen')->select('name')->get();
+        //$districs = District::select('name')->get();
+        $xa = District::select('name')->paginate(1);
+        dd($xa[0]->towns);
         if ($id == Auth::user()->id) {
             $user = User::findOrFail($id);
             return view('frontend.users.show', compact('user'));
@@ -47,6 +58,4 @@ class UserController extends Controller
             return redirect()->back();
         }
     }
-
-
 }
