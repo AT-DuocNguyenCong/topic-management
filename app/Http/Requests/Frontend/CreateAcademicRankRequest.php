@@ -25,7 +25,7 @@ class CreateAcademicRankRequest extends FormRequest
     {
         return [
             'academic_rank_id' => 'required|integer',
-            'graduate' => 'required|date'
+            'graduate' => 'required'
         ];
     }
 }

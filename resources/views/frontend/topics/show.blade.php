@@ -114,6 +114,25 @@
                    <tr>
                      <td>
                        <strong>
+                         <i class="glyphicon glyphicon-tint text-primary"></i>
+                         {{ __('Member') }}
+                       </strong>
+                     </td>
+                     <td><strong>{{ __(':member member', ['member' => $topic->usertopicsProgress->count()]) }}</strong>
+                                <ol>
+                                  @php($checkFo = false)
+                                  @foreach($topic->usertopicsProgress as $key)
+                                    <li><a href="{{ route('user.show', $key->user->id) }}">{{ $key->user->full_name }}</a></li>
+                                  @if ($key->user->id == Auth::user()->id)
+                                    @php($checkFo = true)
+                                  @endif
+                                  @endforeach
+                                </ol>
+                              </td>
+                   </tr>
+                   <tr>
+                     <td>
+                       <strong>
                          <i class="glyphicon glyphicon-cloud text-primary"></i>
                          {{ __('Status') }}
                        </strong>
@@ -166,7 +185,7 @@
                  {{__('Back')}}
                </a>
                {{-- {{dd(Auth::user()->usertopics->count() )}} --}}
-                @if (Auth::user() && Auth::user()->usertopics->count() > 3)
+                @if (Auth::user() && Auth::user()->usertopics->count() > 5)
                   <button href="" class="pull-right btn btn-primary" disabled data-toggle="tooltip" title="{{ __('You have joined :x topics, You can not register more', ['x' => Auth::user()->usertopics->count()]) }}">
                   </button>
                  {{__('Participate')}}
@@ -181,6 +200,11 @@
                     </button>
                 @endif
                 
+                @if ($topic->own_user_id == Auth::user()->id || $checkFo)
+                 <a href="{{ route('usertopics.edit', $topic->id) }}" class="pull-right btn btn-primary" style="margin-right: 10px">
+                    {{__('Edit')}}
+                  </a>
+                @endif
                 <script>
                   function participate() {
                     document.getElementById("participant-form").submit();

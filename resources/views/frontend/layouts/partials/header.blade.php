@@ -46,6 +46,7 @@
                         @endif
                         <a class="btn btn-xs pull-left user-dropdown" href="{{ route('messages.show', Auth::user()->id) }}">{{ __('You have :message message', ['message' => $messages->count()]  ) }}</a>
                         <a class="btn btn-xs pull-left user-dropdown" href="{{ route('usertopics.create') }}">{{ __('Create a new Topic') }}</a>
+                        <a class="btn btn-xs pull-left user-dropdown" href="{{ route('handlerequest.index') }}">{{ __('Request Join') }}</a>
 
                         <a href="{{ route('logout') }}" id="logout" class="btn btn-xs pull-left user-dropdown">{{__('Log out')}}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" hidden="">

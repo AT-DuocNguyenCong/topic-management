@@ -23,13 +23,16 @@
                   <img alt="" title="" class="avt-main img-circle isToolt  ip img-w-h"
                   src="{{ $user->path == null ? asset('img/default1.jpg') : asset($user->path) }}"
                   data-original-title="Usuario">
-                  <input class="cls-ml-46 cls-mt-30 form-control cls-input-image" type="file" name="image">
+                  @if ($user->id == Auth::user()->id)
+                    <input class="cls-ml-46 cls-mt-30 form-control cls-input-image" type="file" name="image">
+                  @endif
                 </div>
                 <div class="col-md-8">
                   <div class="table-responsive">
                     <table class="table table-condensed table-responsive table-user-information has-description">
                       <tbody>
-                        <tr>
+                        @if ($user->id == Auth::user()->id)
+                          <tr>
                           <td colspan="2">
                             <div class="alert cls-alert-info">
                             <strong>{{ __('Login information
@@ -83,6 +86,7 @@
                             <p class="text-danger"><small>{{ $errors->first('password_confirmation') }}</small></p>
                           </td>
                         </tr>
+                        @endif
                         <tr>
                           <td colspan="2">
                             <div class="alert cls-alert-info">
@@ -241,11 +245,13 @@
                           <td>
                             <ul>
                               @foreach($user->userAcademicsrank as $userDegree)
-                                @if($userDegree->academicsrank->type == App\AcademicRank::DEGREE)
+                                @if($userDegree->academicsrank->id <= 3)
                                   <li style="margin-left: -9%;">{{ '- ' }} {{ __($userDegree->academicsrank->name) }}</li>
                                 @endif
                               @endforeach
-                              <li><a style="margin-top: 10px" class="btn btn-primary btn-xs" href="{{ route('profile.academicsrank.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>   
+                            @if ($user->id == Auth::user()->id)
+                              <li><a style="margin-top: 10px" class="btn btn-primary btn-xs" href="{{ route('profile.academicsrank.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>
+                            @endif 
                             </ul>
                           </td>
                         </tr>
@@ -259,11 +265,13 @@
                           <td>
                             <ul>
                               @foreach($user->userAcademicsrank as $value)
-                                @if($value->academicsrank->type == App\AcademicRank::ACADEMICRANK)
+                                @if($value->academicsrank->id > 3)
                                   <li style="margin-left: -9%;">{{ '- ' }} {{ __($value->academicsrank->name) }}</li>
                                 @endif
                               @endforeach
-                              <li><a style="margin-top: 10px" class="btn btn-primary btn-xs" href="{{ route('profile.academicsrank.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>   
+                              @if ($user->id == Auth::user()->id)
+                                <li><a style="margin-top: 10px" class="btn btn-primary btn-xs" href="{{ route('hv.create', $user->id)}}">{{ __('Update Academic Rank') }}</a></li>
+                              @endif  
                             </ul>
                           </td>
                         </tr>
@@ -277,18 +285,30 @@
                       <tr>
                         <table class="table table-responsive">
                           <thead>
+                            <th class="col-md-1">{{__('Id')}}</th>
                             <th class="col-md-3">{{__('Topic Name')}}</th>
-                            <th class="col-md-3">{{__("User's Topic")}}</th>
+                            <th class="col-md-3">{{__("Own")}}</th>
+                            <th class="col-md-3">{{__("Member")}}</th>
                             <th class="col-md-3">{{__("Status")}}</th>
                             <th></th>
                           </thead>
                           <tbody>
+                            @php($index = 1)
                             @foreach($user->topics as $topic)
                             <tr>
+                              <td>{{ $index }}</td>
+                              @php($index++)
                               <td>
                                 <a href="{{route('user.topics.show', $topic)}}">{{ $topic->name }}</a>
                               </td>
                               <td>{{$user->full_name}}</td>
+                              <td><strong>{{ __(':member member', ['member' => $topic->usertopicsProgress->count()]) }}</strong>
+                                <ol>
+                                  @foreach($topic->usertopicsProgress as $key)
+                                    <li><a href="{{ route('user.show', $key->user->id) }}">{{ $key->user->full_name }}</a></li>
+                                  @endforeach
+                                </ol>
+                              </td>
                               <td>{{$topic->status_label}}</td>
                             </tr>
                             @endforeach
@@ -305,18 +325,30 @@
                       <tr>
                         <table class="table table-responsive">
                           <thead>
+                          <th class="col-md-1">{{__('Id')}}</th>
                           <th class="col-md-3">{{__('Topic Name')}}</th>
-                          <th class="col-md-3">{{__("User's Topic")}}</th>
+                          <th class="col-md-3">{{__("Own")}}</th>
+                          <th class="col-md-3">{{__("Member")}}</th>
                           <th class="col-md-3">{{__("Status")}}</th>
                           <th></th>
                           </thead>
                           <tbody>
+                            @php($index = 1)
                           @foreach($user->usertopics as $value)
                             <tr>
+                              <td>{{ $index }}</td>
+                              @php($index++)
                               <td>
                               <a href="{{route('user.topics.show', $value)}}">{{ $value->topic->name }}</a>
                               </td>
                               <td>{{$user->full_name}}</td>
+                              <td><strong>{{ __(':member member', ['member' => $value->topic->usertopicsProgress->count()]) }}</strong>
+                                <ol>
+                                  @foreach($value->topic->usertopicsProgress as $key)
+                                    <li>{{ $value->user->full_name }}</li>
+                                  @endforeach
+                                </ol>
+                              </td>
                               <td>{{$value->topic->status_label}}</td>
                             </tr>
                           @endforeach
@@ -342,6 +374,7 @@
                           {{ $user->created_at }}
                         </td>
                       </tr>
+                      <br>
                       <tr>
                         <td>
                           <strong>
@@ -353,17 +386,14 @@
                           {{ $user->updated_at }}
                         </td>
                       </tr>
+                      <br>
+                      @if ($user->id == Auth::user()->id)
                       <tr>
                         <td>
-                          <strong>
-                          <span class="text-primary"></span>
-                          {{ __('Action') }}
-                          </strong>
-                        </td>
-                        <td>
-                          <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+                          <button type="submit" class="btn btn-primary pull-right">{{ __('Submit') }}</button>
                         </td>
                       </tr>
+                      @endif
                     </tbody>
                   </table>
                 </div>

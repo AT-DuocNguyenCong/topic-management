@@ -19,13 +19,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        if ($id == Auth::user()->id) {
             $user = User::findOrFail($id);
             return view('frontend.users.show', compact('user'));
-        }
-        else {
-            return response()->view('frontend.errors.403');
-        }
     }
 
 

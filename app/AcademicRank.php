@@ -24,7 +24,7 @@ class AcademicRank extends Model
      * @var array $fillable
      */
     protected $fillable = [
-        'name', 'description', 'type'
+        'name', 'description',
     ];
 
     public function users()
